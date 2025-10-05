@@ -1,0 +1,327 @@
+.cloud-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90px;
+  background: rgba(255, 255, 255, 0.2);
+  /* semi-transparent for glass */
+  backdrop-filter: blur(12px);
+  /* glass blur effect */
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  /* subtle glass border */
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  box-sizing: border-box;
+  z-index: 9999;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+}
+
+/* Header content */
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* Right logos */
+.right-logos {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.logo1 {
+  height: 70px;
+  object-fit: contain;
+}
+
+.logo2 {
+  height: 50px;
+  object-fit: contain;
+}
+
+/* Navigation links */
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  position: relative;
+}
+
+.nav-links a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  width: 110px;
+  height: 27px;
+  font-size: 23px;
+  font-weight: 500;
+  transition: color, filter 0.3s ease;
+  padding: 10px 10px;
+  border: none;
+  /* semi-transparent button background */
+}
+
+.nav-links a:hover {
+  color: #000000;
+  background: rgba(255, 255, 255);
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.352));
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 30px;
+}
+
+/* Dropdown */
+.dropdown {
+  position: relative;
+}
+
+.dropdown>a {
+  cursor: pointer;
+}
+
+.dropdown-content {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  background: rgba(255, 255, 255, 0.1);
+  /* glassy dropdown background */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  max-height: 220px;
+  width: max-content;
+  overflow-y: auto;
+  display: none;
+  flex-direction: column;
+  z-index: 10000;
+  transition: opacity 0.2s ease;
+  padding: 0.3rem 0;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.dropdown:hover .dropdown-content {
+  display: flex;
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.dropdown-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.dropdown-content::-webkit-scrollbar-thumb {
+  background-color: #666;
+  border-radius: 4px;
+}
+
+.dropdown-content a {
+  all: unset;
+  display: block;
+  padding: 0.6rem 1rem;
+  font-size: 20px;
+  color: #000000;
+  cursor: pointer;
+  transition: color, filter 0.1s ease;
+  white-space: nowrap;
+}
+
+.dropdown-content a:hover {
+  color: #000000;
+  background: rgb(255, 255, 255);
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.352));
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown-content:hover {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Hamburger for mobile */
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  background: black;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Events button styling like nav-links */
+.events-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  width: 110px;
+  height: 27px;
+  font-size: 22px;
+  font-weight: 500;
+  transition: color, filter 0.3s ease;
+  padding: 22px 65px 22px 65px;
+  border: none;
+  background-color: transparent;
+}
+
+/* Hover effect same as other links */
+.events-btn:hover {
+  color: #000000;
+  background: rgba(255, 255, 255);
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.352));
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 30px;
+}
+
+/* Arrow rotation */
+.arrow {
+  font-size: 1px;
+  transition: transform 0.3s ease;
+}
+
+.events-btn.open .arrow {
+  transform: rotate(180deg);
+  /* ▼ becomes ▲ */
+}
+
+/* Mobile menu adjustments */
+/* === Mobile Navbar === */
+@media (max-width: 768px) {
+
+  /* Hamburger button */
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 10001;
+    /* above everything */
+  }
+
+  .hamburger span {
+    display: block;
+    height: 3px;
+    background: black;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 5px);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7.2px, -6px);
+  }
+
+  /* Mobile menu */
+  .nav-links {
+    position: fixed;
+    top: 90px;
+    right: -100%;
+    width: 70%;
+    height: calc(100vh - 90px);
+    background: #e1e1e1;
+    flex-direction: column;
+    align-items: center;
+    /* ✅ Center horizontally */
+    justify-content: flex-start;
+    padding: 1rem 2rem;
+    gap: 1rem;
+    transition: right 0.3s ease;
+    z-index: 9998;
+  }
+
+  .nav-links.mobile-active {
+    right: 0;
+  }
+
+  /* Nav links styling */
+  .nav-links a,
+  .events-btn {
+    width: auto;
+    font-size: 20px;
+    height: auto;
+    padding: 0.8rem 1rem;
+    text-align: left;
+    color: #000;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    justify-content: center;
+  }
+
+  /* Events button with arrow */
+  .events-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* centers text and arrow horizontally */
+  }
+
+  .arrow {
+    font-size: 0.8em;
+    transition: transform 0.3s ease;
+  }
+
+  .events-btn.open .arrow {
+    transform: rotate(180deg);
+  }
+
+  /* Dropdown content */
+  .dropdown-content {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    padding-left: 0;
+    margin-top: 0.3rem;
+    background: #f9f9f9;
+    border-radius: 5px;
+    text-align: center;
+    min-width: 200px;
+    /* ensures enough space for text */
+    align-self: center;
+  }
+
+  .dropdown-content.active {
+    display: flex;
+  }
+
+}
