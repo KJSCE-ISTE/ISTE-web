@@ -1,0 +1,65 @@
+.Abhiyantriki {
+  
+  background: linear-gradient(to bottom, #020617, #172554, #020617);
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  padding-top: 6rem;
+  font-family: Arial, sans-serif;
+  color: #fff; /* default text color white for contrast */
+  
+}
+
+h1 {
+  margin-bottom: 2rem;
+}
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+  .Prakalpa h1 {
+    font-size: 48px;
+  }
+  .prakalpa-grid {
+    gap: 1.5rem;
+  }
+}
+
+/* Mobile devices */
+@media (max-width: 768px) {
+  .Prakalpa {
+    padding: 1.5rem;
+  }
+  .Prakalpa h1 {
+    font-size: 40px;
+    padding: 15px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .Prakalpa {
+    padding: 1rem;
+  }
+  .Prakalpa h1 {
+    font-size: 32px;
+    padding: 10px;
+  }
+}
+
+/* Extra small */
+@media (max-width: 320px) {
+  .Prakalpa {
+    padding: 0.75rem;
+  }
+  .Prakalpa h1 {
+    font-size: 28px;
+    padding: 8px;
+  }
+}

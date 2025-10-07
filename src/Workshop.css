@@ -1,0 +1,60 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;          /* ensure full height */
+  background: #020617;   /* fallback dark bg */
+}   
+.Workshop {
+  
+  background: linear-gradient(to bottom, #020617, #172554, #020617);
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  padding-top: 6rem;
+  font-family: Arial, sans-serif;
+  color: #fff; /* default text color white for contrast */
+  
+}
+
+h1 {
+  margin-bottom: 2rem;
+}
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@media (max-width: 768px) {
+  .Workshop {
+    padding: 1.5rem;
+  }
+  .Workshop h1 {
+    font-size: 40px;
+    padding: 15px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .Workshop {
+    padding: 1rem;
+  }
+  .Workshop h1 {
+    font-size: 32px;
+    padding: 10px;
+  }
+}
+
+/* Extra small */
+@media (max-width: 320px) {
+  .Workshop {
+    padding: 0.75rem;
+  }
+  .Workshop h1 {
+    font-size: 28px;
+    padding: 8px;
+  }
+}

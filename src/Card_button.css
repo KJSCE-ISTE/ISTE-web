@@ -1,0 +1,343 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: #020617;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  border-radius: 20px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 
+    0 8px 32px 0 rgba(31, 38, 135, 0.1),
+    inset 1px 1px 0 0 rgba(255, 255, 255, 0.2),
+    inset -1px -1px 0 0 rgba(0, 0, 0, 0.05);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  width: 100%;
+  max-width: 1000px;
+  margin: 20px auto;
+  opacity: 0;
+  transform: translateY(30px);
+  will-change: opacity, transform;
+}
+
+.card-visible {
+  animation: fadeInUpScale 0.8s ease-out forwards;
+}
+
+.card-hidden {
+  animation: fadeOutDownScale 0.6s ease-out forwards;
+}
+
+@keyframes fadeInUpScale {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fadeOutDownScale {
+  to {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0.05) 30%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 1;
+  animation: lightMove 6s ease-in-out infinite;
+}
+
+@keyframes lightMove {
+  0%, 100% {
+    transform: translate(0, 0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(20%, 20%);
+    opacity: 1;
+  }
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.05) 50%,
+    transparent 70%
+  );
+  animation: shimmer 8s infinite linear;
+  pointer-events: none;
+  z-index: 2;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 
+    0 12px 48px 0 rgba(31, 38, 135, 0.15),
+    inset 1px 1px 0 0 rgba(255, 255, 255, 0.3),
+    inset -1px -1px 0 0 rgba(0, 0, 0, 0.05),
+    0 0 80px rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.25);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0.04) 100%
+  );
+}
+
+.card-image {
+  position: relative;
+  width: 300px;
+  min-width: 250px;
+  height: auto;
+  object-fit: cover;
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+  z-index: 3;
+  filter: brightness(0.95) contrast(1.05);
+}
+
+.card-content {
+  position: relative;
+  padding: 30px;
+  color: rgba(255, 255, 255, 0.95);
+  z-index: 3;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 1.8rem;
+  margin: 0 0 20px 0;
+  font-weight: 700;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-date,
+.card-theme,
+.card-info {
+  margin: 12px 0;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  font-family: Consolas, monospace;
+}
+
+.card-content strong {
+  color: #0fd562;
+  font-weight: 600;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  font-size: 1.1rem;
+  font-family: Poppins, sans-serif;
+}
+
+.date-value,
+.theme-value {
+  color: rgba(255, 255, 255, 0.85);
+  font-family: Consolas, monospace;
+}
+
+.card-info {
+  margin-top: 15px;
+  flex-grow: 1;
+}
+
+/* Glass Buttons */
+.card-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.btn-website,
+.btn-brochure {
+  position: relative;
+  padding: 12px 28px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: Poppins, sans-serif;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  box-shadow: 
+    0 4px 16px 0 rgba(31, 38, 135, 0.1),
+    inset 1px 1px 0 0 rgba(255, 255, 255, 0.2),
+    inset -1px -1px 0 0 rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  overflow: hidden;
+  opacity: 0.7;
+}
+
+.btn-website {
+  color: #0fd562;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.btn-brochure {
+  color: #60a5fa;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.btn-website::before,
+.btn-brochure::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.btn-website:hover::before,
+.btn-brochure:hover::before {
+  left: 100%;
+}
+
+.btn-website:hover,
+.btn-brochure:hover {
+  transform: translateY(-3px);
+  background: rgba(138, 43, 226, 0.3);
+  border: 1px solid rgba(186, 85, 211, 0.4);
+  box-shadow: 0 8px 32px rgba(138, 43, 226, 0.3);
+  color: #d8b4fe;
+  text-shadow: 0 2px 8px rgba(138, 43, 226, 0.4);
+  opacity: 1;
+}
+
+.btn-website:active,
+.btn-brochure:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(138, 43, 226, 0.2);
+}
+
+/* ---------- RESPONSIVE BREAKPOINTS ---------- */
+
+/* Tablet (stacked image + content) */
+@media (max-width: 992px) {
+  .card {
+    flex-direction: column;
+  }
+
+  .card-image {
+    width: 100%;
+    min-width: 100%;
+    height: 280px;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .card-content {
+    padding: 20px;
+  }
+
+  .card-title {
+    font-size: 1.5rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .card {
+    margin: 15px;
+  }
+
+  .card-title {
+    font-size: 1.3rem;
+  }
+
+  .card-date,
+  .card-theme,
+  .card-info {
+    font-size: 0.9rem;
+  }
+
+  .card-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn-website,
+  .btn-brochure {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Small phones */
+@media (max-width: 400px) {
+  .card-title {
+    font-size: 1.1rem;
+  }
+
+  .card-content {
+    padding: 15px;
+  }
+}
+
+/* Keep original button styles, only change layout */
+@media (max-width: 768px) {
+  .card-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn-website,
+  .btn-brochure {
+    width: 100%;
+    text-align: center;
+  }
+}
