@@ -39,11 +39,11 @@ export function FloatingHeader() {
           isScrolled && 'shadow-xl shadow-neutral-900/10'
         )}
       >
-        <div className="flex items-center justify-between px-6 py-4">
+        <div className="flex items-center justify-between px-8 py-5">
           {/* Left side - Logos */}
-          <div className="flex items-center gap-3 pointer-events-auto">
-            <div className="flex items-center gap-2">
-              <div className="relative h-10 w-10 transition-transform hover:scale-105">
+          <div className="flex items-center gap-4 pointer-events-auto">
+            <div className="flex items-center gap-3">
+              <div className="relative h-12 w-12 transition-transform hover:scale-105">
                 <Image
                   src="/iste-logo.png"
                   alt="ISTE Logo"
@@ -52,7 +52,7 @@ export function FloatingHeader() {
                   priority
                 />
               </div>
-              <div className="relative h-10 w-10 transition-transform hover:scale-105">
+              <div className="relative h-12 w-12 transition-transform hover:scale-105">
                 <Image
                   src="/kjsse-logo.png"
                   alt="KJSSE Logo"
@@ -62,22 +62,22 @@ export function FloatingHeader() {
                 />
               </div>
             </div>
-            <div className="hidden md:block h-8 w-px bg-neutral-300" />
+            <div className="hidden md:block h-10 w-px bg-neutral-300" />
             <div className="hidden md:block">
-              <h2 className="text-lg font-bold bg-gradient-to-r from-neutral-800 to-neutral-600 bg-clip-text text-transparent">
+              <h2 className="text-xl font-bold bg-gradient-to-r from-neutral-800 to-neutral-600 bg-clip-text text-transparent">
                 ISTE KJSSE
               </h2>
             </div>
           </div>
 
           {/* Right side - Navigation */}
-          <div className="flex items-center gap-1 pointer-events-auto">
+          <div className="flex items-center gap-2 pointer-events-auto">
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
                 className={cn(
-                  'relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200',
+                  'relative px-5 py-3 rounded-lg text-sm font-medium transition-all duration-200',
                   'text-neutral-700',
                   'hover:text-neutral-900',
                   'hover:bg-neutral-100/80',
