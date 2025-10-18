@@ -7,6 +7,7 @@ import { cn } from '@/lib/utils';
 
 const navItems = [
   { name: 'Home', href: '#home' },
+  { name: 'About Us', href: '#about' },
   { name: 'Events', href: '#events' },
   { name: 'Gallery', href: '#gallery' },
   { name: 'Team', href: '#team' },
@@ -27,6 +28,24 @@ export function FloatingHeader() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    
+    const targetId = href.replace('#', '');
+    const targetElement = document.getElementById(targetId);
+    
+    if (targetElement) {
+      const headerOffset = 120; // Offset for the fixed header
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   return (
     <motion.header
@@ -145,6 +164,7 @@ export function FloatingHeader() {
                   <motion.a
                     key={item.name}
                     href={item.href}
+                    onClick={(e) => handleNavClick(e, item.href)}
                     className={cn(
                       'relative px-5 py-3 rounded-lg text-lg font-medium',
                       'text-neutral-700 whitespace-nowrap',
