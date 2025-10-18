@@ -3,25 +3,14 @@ import { FloatingHeader } from "@/components/ui/floating-header";
 import { OrbitingCircles } from "@/components/ui/orbiting-circles";
 import { File, Search, Settings, Code, Cpu, Users, Lightbulb, Rocket, Globe } from "lucide-react";
 import AboutSection from "@/components/ui/about-us";
+import Landing from "@/components/ui/landing";
 
 export default function Home() {
   return (
     <HexagonBackground>
       <FloatingHeader />
       
-      {/* Home Section */}
-      <section id="home" className="relative z-10 flex flex-col items-center justify-center min-h-screen pointer-events-none">
-        <div className="text-center space-y-6">
-          <h1 className="text-5xl md:text-8xl font-bold bg-gradient-to-r from-neutral-800 to-neutral-600 bg-clip-text text-transparent leading-[1.2]">
-            ISTE KJSSE
-          </h1>
-          <p className="text-2xl md:text-3xl text-neutral-700">
-            Serving Technology Better
-          </p>
-        </div>
-      </section>
-
-      {/* About Us Section */}
+      <Landing />
       <AboutSection />
       
       {/* Events Section */}
