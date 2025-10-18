@@ -13,16 +13,6 @@ const navItems = [
 ];
 
 export function FloatingHeader() {
-  const [isScrolled, setIsScrolled] = React.useState(false);
-
-  React.useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
     <header
       className={cn(
@@ -36,7 +26,6 @@ export function FloatingHeader() {
           'border border-neutral-200/50',
           'bg-white/80',
           'shadow-lg shadow-neutral-900/5',
-          isScrolled && 'shadow-xl shadow-neutral-900/10'
         )}
       >
         <div className="flex items-center justify-between px-8 py-5">
