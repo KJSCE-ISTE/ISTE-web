@@ -34,7 +34,15 @@ function HexagonBackground({
 
   const updateGridDimensions = React.useCallback(() => {
     if (typeof window === 'undefined') return;
-    const rows = Math.ceil(window.innerHeight / rowSpacing);
+    // Use scrollHeight to cover the entire page, not just viewport
+    const pageHeight = Math.max(
+      document.body.scrollHeight,
+      document.body.offsetHeight,
+      document.documentElement.clientHeight,
+      document.documentElement.scrollHeight,
+      document.documentElement.offsetHeight
+    );
+    const rows = Math.ceil(pageHeight / rowSpacing) + 2; // Add extra rows for safety
     const columns = Math.ceil(window.innerWidth / hexagonWidth) + 1;
     setGridDimensions({ rows, columns });
   }, [rowSpacing, hexagonWidth]);
@@ -42,20 +50,32 @@ function HexagonBackground({
   React.useEffect(() => {
     updateGridDimensions();
     window.addEventListener('resize', updateGridDimensions);
-    return () => window.removeEventListener('resize', updateGridDimensions);
+    
+    // Update when content changes (e.g., when sections are rendered)
+    const observer = new MutationObserver(updateGridDimensions);
+    observer.observe(document.body, { childList: true, subtree: true });
+    
+    // Also update after a short delay to ensure content is fully loaded
+    const timeout = setTimeout(updateGridDimensions, 100);
+    
+    return () => {
+      window.removeEventListener('resize', updateGridDimensions);
+      observer.disconnect();
+      clearTimeout(timeout);
+    };
   }, [updateGridDimensions]);
 
   return (
     <div
       data-slot="hexagon-background"
       className={cn(
-        'relative size-full overflow-hidden bg-neutral-100',
+        'relative min-h-full w-full overflow-hidden bg-neutral-100',
         className,
       )}
       {...props}
     >
       <style>{`:root { --hexagon-margin: ${hexagonMargin}px; }`}</style>
-      <div className="absolute top-0 -left-0 size-full overflow-hidden">
+      <div className="absolute top-0 -left-0 w-full min-h-full overflow-hidden">
         {Array.from({ length: gridDimensions.rows }).map((_, rowIndex) => (
           <div
             key={`row-${rowIndex}`}
