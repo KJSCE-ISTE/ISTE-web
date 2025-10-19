@@ -36,9 +36,9 @@ export function FloatingHeader() {
     const targetElement = document.getElementById(targetId);
     
     if (targetElement) {
-      const headerOffset = 120; // Offset for the fixed header
+      // Get the actual position of the target element
       const elementPosition = targetElement.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      const offsetPosition = elementPosition + window.pageYOffset;
       
       window.scrollTo({
         top: offsetPosition,
