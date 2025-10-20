@@ -1,101 +1,101 @@
 
-// [{
-//     "name": "Tanish Shetty",
-//     "team_name": "Core",
-//     "role": "Chairperson",
-//     "team_rank": 0,
-//     "rank_in_team": 0,
-//     "image_url": "/Team-2025-26/Tanish_CP.png"
-// },
-// {
-//     "name": "Aditi Kanagalay",
-//     "team_name": "Core",
-//     "role": "Vice Chairperson",
-//     "team_rank": 0,
-//     "rank_in_team": 1,
-//     "image_url": "/Team-2025-26/Aditi_VCP.png"
-// },
-// {
-//     "name": "Manav Parekh",
-//     "team_name": "Core",
-//     "role": "Treasurer",
-//     "team_rank": 0,
-//     "rank_in_team": 2,
-//     "image_url": "/Team-2025-26/Manav_Treasurer.png"
-// },{
-//     "name": "Anamay Narkar",
-//     "team_name": "Web and Tech Team",
-//     "role": "Web and Tech Head",
-//     "team_rank": 1,
-//     "rank_in_team": 0,
-//     "image_url": "/Team-2025-26/Anamay_Tech_head.png"
-// },
-// {
-//     "name": "Bhavya Shah",
-//     "team_name": "Web and Tech Team",
-//     "role": "Web and Tech Member",
-//     "team_rank": 1,
-//     "rank_in_team": 1,
-//     "image_url": "/Team-2025-26/Bhavya_tech.png"
-// },
-// {
-//     "name": "Harsh Manojkumar",
-//     "team_name": "Web and Tech Team",
-//     "role": "Web and Tech Member",
-//     "team_rank": 1,
-//     "rank_in_team": 2,
-//     "image_url": "/Team-2025-26/Harsh_tech.png"
-// },
-// {
-//     "name": "Varun Nair",
-//     "team_name": "Web and Tech Team",
-//     "role": "Web and Tech Member",
-//     "team_rank": 1,
-//     "rank_in_team": 3,
-//     "image_url": "/Team-2025-26/Varun_tech.png"
-// },{
-//     "name": "Atharva Pandey",
-//     "team_name": "Web and Tech Team",
-//     "role": "Web and Tech Member",
-//     "team_rank": 1,
-//     "rank_in_team": 4,
-//     "image_url": "/Team-2025-26/Atharva_tech.png"
-// },{
-//     "name": "Aditey Kshirsagar",
-//     "team_name": "Operations Team",
-//     "role": "Operations Head",
-//     "team_rank": 2,
-//     "rank_in_team": 0,
-//     "image_url": "/Team-2025-26/Aditey_OPS_head.png"
-// },{
-//     "name": "Shaunak",
-//     "team_name": "Operations Team",
-//     "role": "Operations Member",
-//     "team_rank": 2,
-//     "rank_in_team": 1,
-//     "image_url": "/Team-2025-26/Shaunak_OPS.png"
-// },{
-//     "name": "Aarohi",
-//     "team_name": "Operations Team",
-//     "role": "Operations Member",
-//     "team_rank": 2,
-//     "rank_in_team": 2,
-//     "image_url": "/Team-2025-26/Aarohi_OPS.jpg"
-// },
-// {
-//     "name": "Dhruv Sokia",
-//     "team_name": "PR & Marketing Team",
-//     "role": "PR Member",
-//     "team_rank": 3,
-//     "rank_in_team":0,
-//     "image_url": "/Team-2025-26/Dhruv_PR_head.png"
-// },
-// {
-//     "name": "Rishabh Jain",
-//     "team_name": "PR & Marketing Team",
-//     "role": "PR Member",
-//     "team_rank": 3,
-//     "rank_in_team": 1,
-//     "image_url": "/Team-2025-26/Rishabh_PR.png"
-// }
-// ]
+[{
+    "name": "Tanish Shetty",
+    "team_name": "Core",
+    "role": "Chairperson",
+    "team_rank": 0,
+    "rank_in_team": 0,
+    "image_url": "/Team-2025-26/Tanish_CP.png"
+},
+{
+    "name": "Aditi Kanagalay",
+    "team_name": "Core",
+    "role": "Vice Chairperson",
+    "team_rank": 0,
+    "rank_in_team": 1,
+    "image_url": "/Team-2025-26/Aditi_VCP.png"
+},
+{
+    "name": "Manav Parekh",
+    "team_name": "Core",
+    "role": "Treasurer",
+    "team_rank": 0,
+    "rank_in_team": 2,
+    "image_url": "/Team-2025-26/Manav_Treasurer.png"
+},{
+    "name": "Anamay Narkar",
+    "team_name": "Web and Tech Team",
+    "role": "Web and Tech Head",
+    "team_rank": 1,
+    "rank_in_team": 0,
+    "image_url": "/Team-2025-26/Anamay_Tech_head.png"
+},
+{
+    "name": "Bhavya Shah",
+    "team_name": "Web and Tech Team",
+    "role": "Web and Tech Member",
+    "team_rank": 1,
+    "rank_in_team": 1,
+    "image_url": "/Team-2025-26/Bhavya_tech.png"
+},
+{
+    "name": "Harsh Manojkumar",
+    "team_name": "Web and Tech Team",
+    "role": "Web and Tech Member",
+    "team_rank": 1,
+    "rank_in_team": 2,
+    "image_url": "/Team-2025-26/Harsh_tech.png"
+},
+{
+    "name": "Varun Nair",
+    "team_name": "Web and Tech Team",
+    "role": "Web and Tech Member",
+    "team_rank": 1,
+    "rank_in_team": 3,
+    "image_url": "/Team-2025-26/Varun_tech.png"
+},{
+    "name": "Atharva Pandey",
+    "team_name": "Web and Tech Team",
+    "role": "Web and Tech Member",
+    "team_rank": 1,
+    "rank_in_team": 4,
+    "image_url": "/Team-2025-26/Atharva_tech.png"
+},{
+    "name": "Aditey Kshirsagar",
+    "team_name": "Operations Team",
+    "role": "Operations Head",
+    "team_rank": 2,
+    "rank_in_team": 0,
+    "image_url": "/Team-2025-26/Aditey_OPS_head.png"
+},{
+    "name": "Shaunak",
+    "team_name": "Operations Team",
+    "role": "Operations Member",
+    "team_rank": 2,
+    "rank_in_team": 1,
+    "image_url": "/Team-2025-26/Shaunak_OPS.png"
+},{
+    "name": "Aarohi",
+    "team_name": "Operations Team",
+    "role": "Operations Member",
+    "team_rank": 2,
+    "rank_in_team": 2,
+    "image_url": "/Team-2025-26/Aarohi_OPS.jpg"
+},
+{
+    "name": "Dhruv Sokia",
+    "team_name": "PR & Marketing Team",
+    "role": "PR Member",
+    "team_rank": 3,
+    "rank_in_team":0,
+    "image_url": "/Team-2025-26/Dhruv_PR_head.png"
+},
+{
+    "name": "Rishabh Jain",
+    "team_name": "PR & Marketing Team",
+    "role": "PR Member",
+    "team_rank": 3,
+    "rank_in_team": 1,
+    "image_url": "/Team-2025-26/Rishabh_PR.png"
+}
+]
