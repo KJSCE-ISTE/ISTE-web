@@ -16,6 +16,7 @@ export default function Home() {
       <AboutSection />
       <EventsSection />
       {/* Gallery Section */}
+     
       <section id="gallery" className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 py-20">
         <div className="max-w-7xl w-full">
           <h2 className="text-4xl md:text-6xl font-bold text-center mb-12 bg-gradient-to-r from-neutral-800 to-neutral-600 bg-clip-text text-transparent">
@@ -28,7 +29,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <TeamSection />
+      <TeamSection/>
 
       {/* Contact Section */}
       <section id="contact" className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 py-20">
