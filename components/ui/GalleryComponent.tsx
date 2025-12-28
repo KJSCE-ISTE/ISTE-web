@@ -13,49 +13,92 @@ const Gallery: React.FC = () => {
     '/GalleryComponentImages/img6.png',
     '/GalleryComponentImages/img7.png',
     '/GalleryComponentImages/img8.jpg',
+    // Added duplicates/placeholders to ensure we have enough diversity for the loop
+    '/GalleryComponentImages/img1.png',
+    '/GalleryComponentImages/img3.png',
   ];
+
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIndex(prev => (prev + 3) % images.length);
+      // Cycle one by one for a smooth "ticker" feel, or +1 to shift gradually
+      setIndex((prev) => (prev + 1) % images.length);
     }, 3000);
     return () => clearInterval(interval);
   }, [images.length]);
 
-  // Always pick 3 images using modular arithmetic so we never get fewer than 3
-  const displayedImages = [0, 1, 2].map(i => images[(index + i) % images.length]);
+  // We grab 7 images at a time to fill our abstract grid
+  const displayedImages = [0, 1, 2, 3, 4, 5, 6].map(
+    (i) => images[(index + i) % images.length]
+  );
 
   return (
-    <section id="gallery" className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 py-20">
+    <section
+      id="gallery"
+      className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 py-20"
+    >
       <div className="max-w-7xl w-full">
-        <h2 className="text-4xl md:text-6xl font-bold text-center mb-12 bg-gradient-to-r from-neutral-800 to-neutral-600 bg-clip-text text-transparent">
-          Gallery
+        <h2 className="text-4xl md:text-7xl font-bold text-left mb-12 bg-gradient-to-br from-neutral-900 to-neutral-500 bg-clip-text text-transparent tracking-tighter">
+          Visuals.
         </h2>
 
-        <div className="flex justify-center gap-8 flex-wrap items-center pt-[10px]">
-          {displayedImages.map((img, i) => (
-            <Image
-              key={i}
-              src={img}
-              alt={`Gallery ${i}`}
-              width={400}
-              height={300}
-              className="w-[45%] max-w-[400px] h-[300px] object-cover rounded-xl shadow-lg transition-all duration-400 ease-in-out hover:scale-[1.03] hover:shadow-xl"
-            />
-          ))}
+        {/* Abstract Masonry Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-3 gap-4 h-[120vh] md:h-[600px] w-full">
+          {displayedImages.map((img, i) => {
+            // "Sexy" layout logic: assign specific grid spans based on index position
+            let gridClass = "col-span-1 row-span-1"; // default
+
+            if (i === 0) gridClass = "md:col-span-2 md:row-span-2"; // Big feature
+            if (i === 1) gridClass = "md:col-span-1 md:row-span-2"; // Tall vertical
+            if (i === 4) gridClass = "md:col-span-2 md:row-span-1"; // Wide horizontal
+
+            return (
+              <div
+                key={i}
+                className={`relative overflow-hidden rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-500 ease-in-out group ${gridClass}`}
+              >
+                <Image
+                  src={img}
+                  alt={`Gallery ${i}`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                {/* Subtle overlay effect */}
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+              </div>
+            );
+          })}
         </div>
-        <div className="pt-[20px] flex justify-center">
+
+        {/* Button Right Aligned */}
+        <div className="pt-8 flex justify-end w-full">
           <a
             href="/gallery"
-            className="inline-flex font-semibold items-center gap-3 text-[23px] text-black bg-white/80 px-[10px] py-[10px] rounded-xl decoration-none transition-all duration-300 ease-in-out hover:bg-gray hover:-translate-y-0.5 drop-shadow-[0_0_6px_rgb(191,219,254)] hover:drop-shadow-[0_0_6px_rgb(147,197,253)]"
+            className="group inline-flex items-center gap-2 text-lg font-medium text-neutral-800 transition-all duration-300 hover:gap-4 hover:text-black"
           >
-            View More →
+            View All Works
+            <span className="bg-black text-white rounded-full p-2 transition-transform duration-300 group-hover:rotate-[-45deg]">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+                stroke="currentColor"
+                className="w-4 h-4"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                />
+              </svg>
+            </span>
           </a>
         </div>
       </div>
-
-    </section >
+    </section>
   );
 };
 

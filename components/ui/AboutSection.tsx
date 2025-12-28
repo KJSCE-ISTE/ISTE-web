@@ -1,5 +1,5 @@
 import { Code, Cpu, Lightbulb, Users, Rocket, Globe } from "lucide-react";
-import { OrbitingCircles } from "./orbiting-circles";
+import { OrbitingCircles } from "./OrbitingCircles";
 
 export default function AboutSection() {
   return (

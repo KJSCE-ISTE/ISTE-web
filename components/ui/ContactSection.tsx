@@ -41,7 +41,7 @@ export default function ContactSection() {
   };
 
   return (
-    <div className="flex flex-col">
+    <section id="contact" className="flex flex-col">
       <div className="flex items-center justify-center p-4 sm:p-8">
         <div className="w-full max-w-3xl">
           {/* Form Container */}
@@ -188,6 +188,6 @@ export default function ContactSection() {
       </div>
 
       
-    </div>
+    </section>
   );
 }
