@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getAllEvents, getEventBySlug, formatEventDate } from '@/lib/events'
 import { Calendar, ArrowLeft, Tag } from 'lucide-react'
+import { HexagonBackground } from '@/components/ui/HexagonBackground'
 
 // Generate static params for all events
 export async function generateStaticParams() {
@@ -94,74 +95,76 @@ export default async function EventDetailPage({ params }: { params: Promise<{ sl
     }
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-neutral-50 to-neutral-100">
-            {/* Hero Image */}
-            <div className="relative h-[40vh] md:h-[50vh] w-full">
-                <Image
-                    src={event.eventUrl}
-                    alt={event.eventName}
-                    fill
-                    className="object-cover"
-                    priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+        <HexagonBackground>
+            <div className="relative z-10 min-h-screen">
+                {/* Hero Image */}
+                <div className="relative h-[40vh] md:h-[50vh] w-full">
+                    <Image
+                        src={event.eventUrl}
+                        alt={event.eventName}
+                        fill
+                        className="object-cover"
+                        priority
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
 
-                {/* Back button overlay */}
-                <div className="absolute top-6 left-6 z-10">
-                    <Link
-                        href="/events"
-                        className="inline-flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 hover:-translate-y-0.5 font-bold text-sm"
-                    >
-                        <ArrowLeft size={18} />
-                        All Events
-                    </Link>
-                </div>
+                    {/* Back button overlay */}
+                    <div className="absolute top-6 left-6 z-10">
+                        <Link
+                            href="/events"
+                            className="inline-flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 hover:-translate-y-0.5 font-bold text-sm"
+                        >
+                            <ArrowLeft size={18} />
+                            All Events
+                        </Link>
+                    </div>
 
-                {/* Title overlay */}
-                <div className="absolute bottom-0 left-0 right-0 p-6 md:p-12">
-                    <div className="max-w-4xl mx-auto">
-                        <h1 className="text-3xl md:text-5xl font-bold text-white mb-3">
-                            {event.eventName}
-                        </h1>
-                        <div className="flex flex-wrap items-center gap-4">
-                            <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/20 backdrop-blur-sm rounded-full text-white font-semibold text-sm">
-                                <Calendar size={16} />
-                                {formatEventDate(event.eventDate)}
-                            </span>
-                            <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/20 backdrop-blur-sm rounded-full text-white font-semibold text-sm">
-                                <Tag size={16} />
-                                {event.year}
-                            </span>
+                    {/* Title overlay */}
+                    <div className="absolute bottom-0 left-0 right-0 p-6 md:p-12">
+                        <div className="max-w-4xl mx-auto">
+                            <h1 className="text-3xl md:text-5xl font-bold text-white mb-3">
+                                {event.eventName}
+                            </h1>
+                            <div className="flex flex-wrap items-center gap-4">
+                                <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/20 backdrop-blur-sm rounded-full text-white font-semibold text-sm">
+                                    <Calendar size={16} />
+                                    {formatEventDate(event.eventDate)}
+                                </span>
+                                <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/20 backdrop-blur-sm rounded-full text-white font-semibold text-sm">
+                                    <Tag size={16} />
+                                    {event.year}
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            {/* Content */}
-            <div className="max-w-4xl mx-auto px-4 py-12 md:py-16">
-                {/* Card Description */}
-                <div className="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-6 md:p-8 mb-12">
-                    <p className="text-xl text-neutral-700 leading-relaxed font-medium">
-                        {event.eventCardDescription}
-                    </p>
+                {/* Content */}
+                <div className="max-w-4xl mx-auto px-4 py-12 md:py-16">
+                    {/* Card Description */}
+                    <div className="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-6 md:p-8 mb-12">
+                        <p className="text-xl text-neutral-700 leading-relaxed font-medium">
+                            {event.eventCardDescription}
+                        </p>
+                    </div>
+
+                    {/* Markdown Content */}
+                    <article className="prose-custom">
+                        {renderMarkdown(event.eventMarkdown)}
+                    </article>
+
+                    {/* Footer Navigation */}
+                    <div className="mt-16 pt-8 border-t-2 border-neutral-200 flex justify-between items-center">
+                        <Link
+                            href="/events"
+                            className="inline-flex items-center gap-2 px-6 py-3 bg-black text-white font-bold border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 hover:-translate-y-0.5"
+                        >
+                            <ArrowLeft size={18} />
+                            All Events
+                        </Link>
+                    </div>
                 </div>
-
-                {/* Markdown Content */}
-                <article className="prose-custom">
-                    {renderMarkdown(event.eventMarkdown)}
-                </article>
-
-                {/* Footer Navigation */}
-                <div className="mt-16 pt-8 border-t-2 border-neutral-200 flex justify-between items-center">
-                    <Link
-                        href="/events"
-                        className="inline-flex items-center gap-2 px-6 py-3 bg-black text-white font-bold border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 hover:-translate-y-0.5"
-                    >
-                        <ArrowLeft size={18} />
-                        All Events
-                    </Link>
-                </div>
             </div>
-        </div>
+        </HexagonBackground>
     )
 }

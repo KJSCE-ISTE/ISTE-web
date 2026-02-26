@@ -7,6 +7,7 @@ import { useParams, useRouter } from 'next/navigation'
 import { motion, AnimatePresence, LayoutGroup } from 'framer-motion'
 import { getTeamByYear, getAllYears } from '@/lib/team-data'
 import { ArrowLeft } from 'lucide-react'
+import { HexagonBackground } from '@/components/ui/HexagonBackground'
 
 // --- Types ---
 type Member = {
@@ -104,159 +105,116 @@ export default function TeamsYearPage() {
     }
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-neutral-50 to-neutral-100">
-            {/* Header */}
-            <div className="pt-8 px-6 md:px-12">
-                <div className="max-w-7xl mx-auto">
-                    <Link
-                        href="/"
-                        className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 hover:-translate-y-0.5 font-bold text-sm"
-                    >
-                        <ArrowLeft size={18} />
-                        Back to Home
-                    </Link>
+        <HexagonBackground>
+            <div className="relative z-10 min-h-screen">
+                {/* Header */}
+                <div className="pt-8 px-6 md:px-12">
+                    <div className="max-w-7xl mx-auto">
+                        <Link
+                            href="/"
+                            className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 hover:-translate-y-0.5 font-bold text-sm"
+                        >
+                            <ArrowLeft size={18} />
+                            Back to Home
+                        </Link>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
-                    >
-                        <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-neutral-900 to-neutral-700 bg-clip-text text-transparent">
-                            Our Teams
-                        </h1>
-                        <p className="text-xl text-neutral-600 mt-3">
-                            The people who make it all happen
-                        </p>
-                    </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5 }}
+                        >
+                            <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-neutral-900 to-neutral-700 bg-clip-text text-transparent">
+                                Our Teams
+                            </h1>
+                            <p className="text-xl text-neutral-600 mt-3">
+                                The people who make it all happen
+                            </p>
+                        </motion.div>
 
-                    {/* Year Switcher - Animated pill buttons */}
-                    <div className="mt-8 mb-12">
-                        <LayoutGroup>
-                            <div className="flex flex-wrap gap-2 p-1.5 bg-neutral-100 rounded-2xl w-fit border border-neutral-200">
-                                {years.map((year) => (
-                                    <button
-                                        key={year}
-                                        ref={(el) => {
-                                            if (el) buttonRefs.current.set(year, el)
-                                        }}
-                                        onClick={() => handleYearChange(year)}
-                                        onMouseEnter={() => setHoveredYear(year)}
-                                        onMouseLeave={() => setHoveredYear(null)}
-                                        className={`relative rounded-xl px-5 py-2.5 text-sm font-semibold transition-colors duration-300 z-10 ${activeYear === year
-                                            ? 'text-white'
-                                            : 'text-neutral-600 hover:text-neutral-900'
-                                            }`}
-                                    >
-                                        {/* Active indicator - sliding pill */}
-                                        {activeYear === year && (
-                                            <motion.div
-                                                layoutId="activeYearPill"
-                                                className="absolute inset-0 bg-neutral-900 rounded-xl shadow-lg"
-                                                transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                                                style={{ zIndex: -1 }}
-                                            />
-                                        )}
-                                        {/* Hover indicator */}
-                                        {hoveredYear === year && activeYear !== year && (
-                                            <motion.div
-                                                layoutId="hoverYearPill"
-                                                className="absolute inset-0 bg-neutral-200/70 rounded-xl"
-                                                initial={{ opacity: 0 }}
-                                                animate={{ opacity: 1 }}
-                                                exit={{ opacity: 0 }}
-                                                transition={{ duration: 0.15 }}
-                                                style={{ zIndex: -1 }}
-                                            />
-                                        )}
-                                        {year}
-                                    </button>
-                                ))}
-                            </div>
-                        </LayoutGroup>
+                        {/* Year Switcher - Animated pill buttons */}
+                        <div className="mt-8 mb-12">
+                            <LayoutGroup>
+                                <div className="flex flex-wrap gap-2 p-1.5 bg-neutral-100 rounded-2xl w-fit border border-neutral-200">
+                                    {years.map((year) => (
+                                        <button
+                                            key={year}
+                                            ref={(el) => {
+                                                if (el) buttonRefs.current.set(year, el)
+                                            }}
+                                            onClick={() => handleYearChange(year)}
+                                            onMouseEnter={() => setHoveredYear(year)}
+                                            onMouseLeave={() => setHoveredYear(null)}
+                                            className={`relative rounded-xl px-5 py-2.5 text-sm font-semibold transition-colors duration-300 z-10 ${activeYear === year
+                                                ? 'text-white'
+                                                : 'text-neutral-600 hover:text-neutral-900'
+                                                }`}
+                                        >
+                                            {/* Active indicator - sliding pill */}
+                                            {activeYear === year && (
+                                                <motion.div
+                                                    layoutId="activeYearPill"
+                                                    className="absolute inset-0 bg-neutral-900 rounded-xl shadow-lg"
+                                                    transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                                                    style={{ zIndex: -1 }}
+                                                />
+                                            )}
+                                            {/* Hover indicator */}
+                                            {hoveredYear === year && activeYear !== year && (
+                                                <motion.div
+                                                    layoutId="hoverYearPill"
+                                                    className="absolute inset-0 bg-neutral-200/70 rounded-xl"
+                                                    initial={{ opacity: 0 }}
+                                                    animate={{ opacity: 1 }}
+                                                    exit={{ opacity: 0 }}
+                                                    transition={{ duration: 0.15 }}
+                                                    style={{ zIndex: -1 }}
+                                                />
+                                            )}
+                                            {year}
+                                        </button>
+                                    ))}
+                                </div>
+                            </LayoutGroup>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            {/* Team Content */}
-            <div className="px-6 md:px-12 pb-24">
-                <AnimatePresence mode="wait">
-                    <motion.div
-                        key={activeYear}
-                        {...teamTransition}
-                        className="max-w-7xl mx-auto space-y-24"
-                    >
-                        {teamsData.length === 0 && (
-                            <div className="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-12 text-center rounded-xl">
-                                <p className="text-2xl text-neutral-600 font-bold">
-                                    No team data available for {activeYear}
-                                </p>
-                            </div>
-                        )}
+                {/* Team Content */}
+                <div className="px-6 md:px-12 pb-24">
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={activeYear}
+                            {...teamTransition}
+                            className="max-w-7xl mx-auto space-y-24"
+                        >
+                            {teamsData.length === 0 && (
+                                <div className="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-12 text-center rounded-xl">
+                                    <p className="text-2xl text-neutral-600 font-bold">
+                                        No team data available for {activeYear}
+                                    </p>
+                                </div>
+                            )}
 
-                        {teamsData.map((team) => (
-                            <div key={team.name} className="relative group">
-                                <motion.div
-                                    initial={{ opacity: 0, x: -20 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true, margin: "-100px" }}
-                                    className={`mb-8 ${team.variant === 'gridOnly' ? 'text-center' : ''}`}
-                                >
-                                    <span className="text-xs font-semibold tracking-widest text-neutral-400 uppercase border-b border-neutral-200 pb-2">
-                                        {team.name}
-                                    </span>
-                                </motion.div>
-
-                                {team.variant === 'gridOnly' ? (
+                            {teamsData.map((team) => (
+                                <div key={team.name} className="relative group">
                                     <motion.div
-                                        variants={staggerContainer}
-                                        initial="hidden"
-                                        whileInView="visible"
-                                        viewport={{ once: true, margin: "-50px" }}
-                                        className="flex flex-wrap justify-center gap-6 md:gap-8"
+                                        initial={{ opacity: 0, x: -20 }}
+                                        whileInView={{ opacity: 1, x: 0 }}
+                                        viewport={{ once: true, margin: "-100px" }}
+                                        className={`mb-8 ${team.variant === 'gridOnly' ? 'text-center' : ''}`}
                                     >
-                                        {team.members.map((member) => (
-                                            <motion.div
-                                                key={member.name}
-                                                variants={fadeInUp}
-                                                transition={{ type: 'spring', stiffness: 50, damping: 20 }}
-                                                className="w-full sm:w-[calc(50%-1.5rem)] md:w-[calc(33.33%-1.5rem)] lg:w-[calc(25%-1.5rem)] max-w-[220px]"
-                                            >
-                                                <MemberCard member={member} />
-                                            </motion.div>
-                                        ))}
+                                        <span className="text-xs font-semibold tracking-widest text-neutral-400 uppercase border-b border-neutral-200 pb-2">
+                                            {team.name}
+                                        </span>
                                     </motion.div>
-                                ) : (
-                                    <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 lg:gap-16 items-center">
-                                        <motion.div
-                                            initial="hidden"
-                                            whileInView="visible"
-                                            viewport={{ once: true, margin: "-100px" }}
-                                            variants={scaleIn}
-                                            transition={{ duration: 0.5, ease: "easeOut" }}
-                                            className="w-full max-w-[280px] sticky top-24"
-                                        >
-                                            <div className="relative w-full aspect-[4/5] rounded-3xl overflow-hidden border-2 border-neutral-900 shadow-2xl bg-white">
-                                                <Image
-                                                    src={team.head.image || '/placeholder.svg'}
-                                                    alt={team.head.name}
-                                                    fill
-                                                    sizes="(max-width: 1024px) 92vw, 280px"
-                                                    className="object-cover object-top hover:scale-105 transition-transform duration-700"
-                                                />
-                                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                                                <div className="absolute bottom-0 left-0 right-0 p-6 text-left">
-                                                    <p className="text-2xl font-bold text-white leading-tight">{team.head.name}</p>
-                                                    <p className="text-md text-white/80 font-medium mt-1">{team.head.role}</p>
-                                                </div>
-                                            </div>
-                                        </motion.div>
 
+                                    {team.variant === 'gridOnly' ? (
                                         <motion.div
                                             variants={staggerContainer}
                                             initial="hidden"
                                             whileInView="visible"
                                             viewport={{ once: true, margin: "-50px" }}
-                                            className="flex flex-wrap justify-center gap-5 md:gap-6"
+                                            className="flex flex-wrap justify-center gap-6 md:gap-8"
                                         >
                                             {team.members.map((member) => (
                                                 <motion.div
@@ -265,18 +223,63 @@ export default function TeamsYearPage() {
                                                     transition={{ type: 'spring', stiffness: 50, damping: 20 }}
                                                     className="w-full sm:w-[calc(50%-1.5rem)] md:w-[calc(33.33%-1.5rem)] lg:w-[calc(25%-1.5rem)] max-w-[220px]"
                                                 >
-                                                    <MemberCard member={member} small />
+                                                    <MemberCard member={member} />
                                                 </motion.div>
                                             ))}
                                         </motion.div>
-                                    </div>
-                                )}
-                            </div>
-                        ))}
-                    </motion.div>
-                </AnimatePresence>
+                                    ) : (
+                                        <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 lg:gap-16 items-center">
+                                            <motion.div
+                                                initial="hidden"
+                                                whileInView="visible"
+                                                viewport={{ once: true, margin: "-100px" }}
+                                                variants={scaleIn}
+                                                transition={{ duration: 0.5, ease: "easeOut" }}
+                                                className="w-full max-w-[280px] sticky top-24"
+                                            >
+                                                <div className="relative w-full aspect-[4/5] rounded-3xl overflow-hidden border-2 border-neutral-900 shadow-2xl bg-white">
+                                                    <Image
+                                                        src={team.head.image || '/placeholder.svg'}
+                                                        alt={team.head.name}
+                                                        fill
+                                                        sizes="(max-width: 1024px) 92vw, 280px"
+                                                        className="object-cover object-top hover:scale-105 transition-transform duration-700"
+                                                    />
+                                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                                                    <div className="absolute bottom-0 left-0 right-0 p-6 text-left">
+                                                        <p className="text-2xl font-bold text-white leading-tight">{team.head.name}</p>
+                                                        <p className="text-md text-white/80 font-medium mt-1">{team.head.role}</p>
+                                                    </div>
+                                                </div>
+                                            </motion.div>
+
+                                            <motion.div
+                                                variants={staggerContainer}
+                                                initial="hidden"
+                                                whileInView="visible"
+                                                viewport={{ once: true, margin: "-50px" }}
+                                                className="flex flex-wrap justify-center gap-5 md:gap-6"
+                                            >
+                                                {team.members.map((member) => (
+                                                    <motion.div
+                                                        key={member.name}
+                                                        variants={fadeInUp}
+                                                        transition={{ type: 'spring', stiffness: 50, damping: 20 }}
+                                                        className="w-full sm:w-[calc(50%-1.5rem)] md:w-[calc(33.33%-1.5rem)] lg:w-[calc(25%-1.5rem)] max-w-[220px]"
+                                                    >
+                                                        <MemberCard member={member} small />
+                                                    </motion.div>
+                                                ))}
+                                            </motion.div>
+                                        </div>
+                                    )}
+                                </div>
+                            ))}
+                        </motion.div>
+                    </AnimatePresence>
+                </div>
             </div>
-        </div>
+        </HexagonBackground>
     )
 }
 

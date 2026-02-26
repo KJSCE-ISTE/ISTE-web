@@ -616,17 +616,6 @@
     "imageUrl": "https://raw.githubusercontent.com/KJSCE-ISTE/Web-Assets-1/refs/heads/main/Teams/2024-2025/AyushMore_SocialMedia_Member_2024-2025.jpg"
   },
   {
-    "name": "Tanish Shetty",
-    "year": "2025-2026",
-    "team": "Core",
-    "teamRole": "Chairperson",
-    "isTeamLead": true,
-    "instagram": "https://www.instagram.com/tanish_shetty33?igsh=MTBvZjFhejR4czNmOQ==",
-    "linkedin": "http://www.linkedin.com/in/tanish-shetty-92b2832a9",
-    "github": "https://github.com/Tanish-shetty",
-    "imageUrl": "https://raw.githubusercontent.com/KJSCE-ISTE/Web-Assets-1/refs/heads/main/Teams/2025-2026/Tanish_Core_CP_2025-2026.png"
-  },
-  {
     "name": "Aditi Kanagala",
     "year": "2025-2026",
     "team": "Core",
@@ -636,6 +625,17 @@
     "linkedin": "http://www.linkedin.com/in/aditi-kanagala-262b772a1",
     "github": " ",
     "imageUrl": "https://raw.githubusercontent.com/KJSCE-ISTE/Web-Assets-1/refs/heads/main/Teams/2025-2026/Aditi_Core_VCP_2025-2026.png"
+  },
+  {
+    "name": "Tanish Shetty",
+    "year": "2025-2026",
+    "team": "Core",
+    "teamRole": "Chairperson",
+    "isTeamLead": true,
+    "instagram": "https://www.instagram.com/tanish_shetty33?igsh=MTBvZjFhejR4czNmOQ==",
+    "linkedin": "http://www.linkedin.com/in/tanish-shetty-92b2832a9",
+    "github": "https://github.com/Tanish-shetty",
+    "imageUrl": "https://raw.githubusercontent.com/KJSCE-ISTE/Web-Assets-1/refs/heads/main/Teams/2025-2026/Tanish_Core_CP_2025-2026.png"
   },
   {
     "name": "Manav Parekh",
@@ -845,17 +845,6 @@
     "linkedin": " ",
     "github": " ",
     "imageUrl": "https://raw.githubusercontent.com/KJSCE-ISTE/Web-Assets-1/refs/heads/main/Teams/2025-2026/Nidhi_PR_Member_2025-2026.png"
-  },
-  {
-    "name": "Prasen",
-    "year": "2025-2026",
-    "team": "PR",
-    "teamRole": "Member",
-    "isTeamLead": false,
-    "instagram": "",
-    "linkedin": " ",
-    "github": " ",
-    "imageUrl": "https://raw.githubusercontent.com/KJSCE-ISTE/Web-Assets-1/refs/heads/main/Teams/2025-2026/Prasen_PR_Member_2025-2026.png"
   },
   {
     "name": "Rishabh",
