@@ -615,6 +615,17 @@
     "github": " ",
     "imageUrl": "https://raw.githubusercontent.com/KJSCE-ISTE/Web-Assets-1/refs/heads/main/Teams/2024-2025/AyushMore_SocialMedia_Member_2024-2025.jpg"
   },
+    {
+    "name": "Tanish Shetty",
+    "year": "2025-2026",
+    "team": "Core",
+    "teamRole": "Chairperson",
+    "isTeamLead": true,
+    "instagram": "https://www.instagram.com/tanish_shetty33?igsh=MTBvZjFhejR4czNmOQ==",
+    "linkedin": "http://www.linkedin.com/in/tanish-shetty-92b2832a9",
+    "github": "https://github.com/Tanish-shetty",
+    "imageUrl": "https://raw.githubusercontent.com/KJSCE-ISTE/Web-Assets-1/refs/heads/main/Teams/2025-2026/Tanish_Core_CP_2025-2026.jpeg"
+  },
   {
     "name": "Aditi Kanagala",
     "year": "2025-2026",
@@ -627,25 +638,14 @@
     "imageUrl": "https://raw.githubusercontent.com/KJSCE-ISTE/Web-Assets-1/refs/heads/main/Teams/2025-2026/Aditi_Core_VCP_2025-2026.png"
   },
   {
-    "name": "Tanish Shetty",
-    "year": "2025-2026",
-    "team": "Core",
-    "teamRole": "Chairperson",
-    "isTeamLead": true,
-    "instagram": "https://www.instagram.com/tanish_shetty33?igsh=MTBvZjFhejR4czNmOQ==",
-    "linkedin": "http://www.linkedin.com/in/tanish-shetty-92b2832a9",
-    "github": "https://github.com/Tanish-shetty",
-    "imageUrl": "https://raw.githubusercontent.com/KJSCE-ISTE/Web-Assets-1/refs/heads/main/Teams/2025-2026/Tanish_Core_CP_2025-2026.jpeg"
-  },
-  {
     "name": "Manav Parekh",
     "year": "2025-2026",
     "team": "Core",
-    "teamRole": "Treasurer",
+    "teamRole": "Treasurer And Secretary",
     "isTeamLead": true,
     "instagram": "https://www.instagram.com/manav_0613/",
-    "linkedin": " ",
-    "github": " ",
+    "linkedin": "https://www.linkedin.com/in/manav-parekh-7700b8273?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    "github": "https://github.com/ManavParekh13",
     "imageUrl": "https://raw.githubusercontent.com/KJSCE-ISTE/Web-Assets-1/refs/heads/main/Teams/2025-2026/Manav_Core_Treasurer_2025-2026.png"
   },
   {
@@ -656,8 +656,8 @@
     "isTeamLead": true,
     "instagram": "https://www.instagram.com/imaditey_19?igsh=bnYzdzhoamNmaWdr&utm_source=qr",
     "linkedin": "https://www.linkedin.com/in/aditey-kshirsagar-0b7962307?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-    "github": " ",
-    "imageUrl": "https://raw.githubusercontent.com/KJSCE-ISTE/Web-Assets-1/refs/heads/main/Teams/2025-2026/Aditey_Operations_Head_2025-2026.png"
+    "github": "https://github.com/Aditey1908",
+    "imageUrl": "https://raw.githubusercontent.com/KJSCE-ISTE/Web-Assets-1/refs/heads/main/Teams/2024-2025/AditeyKshirsagar_Operations_Member_2024-2025.jpg"
   },
   {
     "name": "Aarohi",
@@ -698,9 +698,9 @@
     "team": "Operations",
     "teamRole": "Member",
     "isTeamLead": false,
-    "instagram": "",
-    "linkedin": " ",
-    "github": " ",
+    "instagram": "https://www.instagram.com/theduttashounak/",
+    "linkedin": "www.linkedin.com/in/shounak-d-3b500b214",
+    "github": "https://github.com/sudoDreamer",
     "imageUrl": "https://raw.githubusercontent.com/KJSCE-ISTE/Web-Assets-1/refs/heads/main/Teams/2025-2026/Shaunak_Operations_Member_2025-2026.png"
   },
   {
@@ -712,7 +712,7 @@
     "instagram": "https://instagram.com/anamay.narkar",
     "linkedin": "https://www.linkedin.com/in/anamay-narkar-23754b297?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     "github": "https://github.com/AnamayNarkar",
-    "imageUrl": "https://raw.githubusercontent.com/KJSCE-ISTE/Web-Assets-1/refs/heads/main/Teams/2025-2026/Anamay_WebAndTech_Head_2025-2026.png"
+    "imageUrl": "https://raw.githubusercontent.com/KJSCE-ISTE/Web-Assets-1/refs/heads/main/Teams/2024-2025/AnamayNarkar_WebAndTech_Member_2024-2025.jpg"
   },
   {
     "name": "Atharva",
@@ -765,7 +765,7 @@
     "teamRole": "Head",
     "isTeamLead": true,
     "instagram": "https://www.instagram.com/aaryansharma2512/",
-    "linkedin": " ",
+    "linkedin": "https://www.linkedin.com/in/aaryan-sharmaa25/",
     "github": "https://github.com/Aaryan-Sharma-5",
     "imageUrl": "https://raw.githubusercontent.com/KJSCE-ISTE/Web-Assets-1/refs/heads/main/Teams/2025-2026/Aaryan_Creative_Head_2025-2026.png"
   },
@@ -842,7 +842,7 @@
     "teamRole": "Member",
     "isTeamLead": false,
     "instagram": "https://www.instagram.com/nidhi_rasalkar/",
-    "linkedin": " ",
+    "linkedin": "https://www.linkedin.com/in/nidhi-rasalkar-229400333/",
     "github": " ",
     "imageUrl": "https://raw.githubusercontent.com/KJSCE-ISTE/Web-Assets-1/refs/heads/main/Teams/2025-2026/Nidhi_PR_Member_2025-2026.png"
   },
