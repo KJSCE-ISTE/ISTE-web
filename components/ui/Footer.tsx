@@ -59,6 +59,10 @@ export default function Footer() {
                 <Phone className="w-4 h-4 text-blue-500 shrink-0" />
                 <span className="hover:text-white transition-colors">Aditi Kanagala: +91 98204 93896</span>
               </li>
+              <li className="flex items-center gap-3">
+                <Phone className="w-4 h-4 text-blue-500 shrink-0" />
+                <span className="hover:text-white transition-colors">Manav Parekh: +91 99876 46965</span>
+              </li>
             </ul>
           </div>
 
