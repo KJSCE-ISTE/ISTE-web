@@ -85,7 +85,7 @@ export default function TeamsYearPage() {
 
         const departmentMap: Record<string, string> = {
             operations: 'Operations', webTech: 'Web & Tech', web: 'Web', tech: 'Tech',
-            prMarketing: 'PR & Marketing', pr: 'PR', creative: 'Creative', socialMedia: 'Social Media',
+            prMarketing: 'PR & Marketing', creative: 'Creative', pr: 'PR', socialMedia: 'Social Media',
             events: 'Events', literary: 'Literary',
         }
 
@@ -237,7 +237,7 @@ export default function TeamsYearPage() {
                                                 transition={{ duration: 0.5, ease: "easeOut" }}
                                                 className="w-full max-w-[280px] sticky top-24"
                                             >
-                                                <div className="relative w-full aspect-[4/5] rounded-3xl overflow-hidden border-2 border-neutral-900 shadow-2xl bg-white">
+                                                <div className="group relative w-full aspect-[4/5] rounded-3xl overflow-hidden border-2 border-neutral-900 shadow-2xl bg-white">
                                                     <Image
                                                         src={team.head.image || '/placeholder.svg'}
                                                         alt={team.head.name}
