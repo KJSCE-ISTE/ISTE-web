@@ -14,8 +14,7 @@ export default function AboutSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left: Single Paragraph */}
           <div>
-            <h3 className="text-xl md:text-2xl leading-relaxed text-neutral-700">
-              <span className="font-bold text-black">ISTE KJSSE</span> is where <span className="font-bold text-black">brilliant minds converge</span> to transform STEM education. We break the mold of traditional learning—combining <span className="font-bold text-black">hands-on projects, real-world challenges, and expert mentorship</span> to build the innovators of tomorrow. Our community thrives on collaboration, pushing boundaries, and turning <span className="font-bold text-black">ideas into measurable impact</span>. This isn't just about learning; it's about <span className="font-bold text-black">becoming the change</span> your world needs.
+            <h3 className="text-xl md:text-2xl leading-relaxed text-neutral-700">The <span className="font-bold text-black">Indian Society for Technical Education (ISTE)</span> is the leading National Professional non-profit making Society for the Technical Education System in our country with the motto of <span className="font-bold text-black">Career Development of Teachers and Personality Development of Students</span> and overall development of our Technical Education System. The <span className="font-bold text-black">ISTE KJSSE Students' Chapter (MH 60)</span> was established in the year <span className="font-bold text-black">2000 - 2001</span>. One of the major object of ISTE is to assist and to contribute the production and development of <span className="font-bold text-black">top quality professional engineers and technicians</span> needed by the industries and other organizations.
             </h3>
           </div>
 
