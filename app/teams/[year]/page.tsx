@@ -84,8 +84,8 @@ export default function TeamsYearPage() {
         }
 
         const departmentMap: Record<string, string> = {
-            operations: 'Operations', webTech: 'Web & Tech', web: 'Web', tech: 'Tech',
-            prMarketing: 'PR & Marketing', pr: 'PR', creative: 'Creative', socialMedia: 'Social Media',
+            operations: 'Operations', webTech: 'Web & Tech', web: 'Web', tech: 'Tech', creative: 'Creative',
+            prMarketing: 'PR & Marketing', pr: 'PR', socialMedia: 'Social Media',
             events: 'Events', literary: 'Literary',
         }
 
