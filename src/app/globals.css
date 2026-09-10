@@ -1,0 +1,543 @@
+@import "tailwindcss";
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   ISTE KJSSE — design tokens
+   A bright, blue-white canvas with a single navy block, drawn from the
+   chapter logo. Surfaces are named separately from ink so the palette can
+   move without disturbing a single font colour.
+   ═══════════════════════════════════════════════════════════════════ */
+@theme {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", monospace;
+
+  /* ═════════════════════════════════════════════════════════════════
+     Palette — Spectrum.
+
+     The original site was zero-chroma throughout: near-black slabs on flat
+     grey #F5F5F5, with 43.1% of the homepage in colourless black. This
+     palette rebalances that to 77% bright / 23% navy, and gives the bright
+     majority actual colour rather than grey.
+
+     The one dark block is #09014D — the ISTE mark's own navy, sampled from
+     public/iste-logo.png where it is 43.8% of the artwork. There is no pure
+     black anywhere in the palette.
+     ═════════════════════════════════════════════════════════════════ */
+
+  /* Canvas — the bright 77% */
+  --color-canvas: #f7f8ff;
+  --color-canvas-raised: #ffffff;
+  --color-wash: #eef1ff;
+  --color-hairline: #e2e5f5;
+
+  /* Ink. Deliberately unchanged from the original near-black scale — the
+     brief was to move the surfaces and leave every font colour alone. */
+  --color-ink: #171717;
+  --color-ink-soft: #525252;
+  --color-ink-faint: #a3a3a3;
+
+  /* ─────────────────────────────────────────────────────────────────
+     Semantic SURFACE tokens.
+
+     These exist because Tailwind v4 compiles `bg-neutral-900` and
+     `text-neutral-900` to the SAME custom property, `--color-neutral-900`.
+     Retheming through that variable would recolour every heading along with
+     every panel. Surfaces therefore get their own names here, and text keeps
+     `text-neutral-*` untouched.
+     ───────────────────────────────────────────────────────────────── */
+  --color-section: #09014d; /* the one dark block — logo navy      */
+  --color-panel: #0f0a63; /* card / panel sitting on it          */
+  --color-panel-edge: #1b1580; /* border of that panel                */
+  --color-field-edge: #2d3a77; /* input + chip borders on dark        */
+  --color-rule: #3e4d8a; /* hairline rules on dark              */
+  --color-fill: #09014d; /* solid button + pill fills           */
+
+  /* ─────────────────────────────────────────────────────────────────
+     Accents.
+
+     Four categorical slots, cycled by index via src/lib/accents.ts, so
+     event timeline nodes and gallery filters carry their own hue rather
+     than repeating one blue. Ordered so adjacent categories never collide.
+     ───────────────────────────────────────────────────────────────── */
+  --color-accent: #4c6ef5; /* blue  */
+  --color-accent-lift: #748ffc;
+  --color-accent-glow: #91a7ff;
+  --color-accent-2: #06b6d4; /* cyan  */
+  --color-accent-3: #f59e0b; /* amber */
+  --color-accent-4: #f43f5e; /* coral */
+  --color-bright: #4c6ef5;
+
+  /* Motion */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+:root {
+  --hexagon-margin: 4px;
+  --cursor-size: 14px;
+  --nav-h: 84px;
+  color-scheme: light;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   Base
+   ═══════════════════════════════════════════════════════════════════ */
+* {
+  scroll-margin-top: calc(var(--nav-h) + 24px);
+}
+
+html {
+  /* Lenis drives scrolling; native smooth-scroll would fight it. */
+  scroll-behavior: auto;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Lenis: the wrapper must not clip, or position:sticky dies. */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+::selection {
+  background: var(--color-ink);
+  color: var(--color-canvas);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Scrollbar — thin, neutral, matches the chrome. */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #d4d4d4;
+  border-radius: 999px;
+  border: 3px solid var(--color-canvas);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a3a3a3;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   Custom cursor
+   The native cursor is hidden only on devices that actually have a
+   fine pointer. Touch devices and keyboard users keep native behaviour.
+   ═══════════════════════════════════════════════════════════════════ */
+@media (hover: hover) and (pointer: fine) {
+  html.has-custom-cursor,
+  html.has-custom-cursor * {
+    cursor: none !important;
+  }
+  /* Text inputs keep a caret — hiding it makes forms unusable. */
+  html.has-custom-cursor input,
+  html.has-custom-cursor textarea,
+  html.has-custom-cursor select,
+  html.has-custom-cursor [contenteditable="true"] {
+    cursor: auto !important;
+  }
+}
+
+/*
+ * The cursor rig's own layer.
+ *
+ * `contain: strict` was here and it was the bug: strict includes PAINT
+ * containment, which creates a stacking context and isolates the element from
+ * what is behind it. `mix-blend-difference` on the cursor therefore had nothing
+ * to blend against and rendered flat white — invisible on the light canvas,
+ * correct-looking only over the dark sections.
+ *
+ * Blend modes are the wrong tool here anyway: any ancestor with a transform,
+ * filter or opacity creates a stacking context and silently breaks them, and
+ * this page has all three. The cursor now picks its colour explicitly from the
+ * surface it is over (see `data-surface`), which cannot be broken by layout.
+ *
+ * `layout style` containment is kept — it still isolates layout and counters
+ * without touching paint.
+ */
+.cursor-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  contain: layout style;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   3D primitives
+   `preserve-3d` on the parent + `translateZ` on children gives real
+   perspective depth with zero JS per frame — the compositor does it.
+   ═══════════════════════════════════════════════════════════════════ */
+.scene {
+  perspective: 1200px;
+  perspective-origin: 50% 50%;
+}
+.scene-near {
+  perspective: 700px;
+}
+.scene-far {
+  perspective: 2400px;
+}
+.preserve-3d {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+.layer-back {
+  transform: translateZ(-60px);
+}
+.layer-mid {
+  transform: translateZ(20px);
+}
+.layer-front {
+  transform: translateZ(64px);
+}
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Card that lifts toward the pointer, with a specular sheen. */
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: box-shadow 0.5s var(--ease-out-expo);
+}
+.tilt-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    600px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(255, 255, 255, 0.55),
+    transparent 42%
+  );
+  opacity: 0;
+  transition: opacity 0.45s var(--ease-out-expo);
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+.tilt-card:hover::after {
+  opacity: 1;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   Surfaces
+   ═══════════════════════════════════════════════════════════════════ */
+.glass {
+  background: color-mix(in srgb, #ffffff 80%, transparent);
+  backdrop-filter: blur(14px) saturate(1.5);
+  -webkit-backdrop-filter: blur(14px) saturate(1.5);
+  border: 1px solid color-mix(in srgb, var(--color-hairline) 50%, transparent);
+}
+
+.grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/*
+ * Gradient ink, in two flavours — and they must not be mixed up.
+ *
+ * `background-clip: text` clips a gradient to the glyphs painted by the element
+ * AND its descendants, but only while those descendants share its paint pass.
+ * Framer Motion promotes each animated word to its own compositing layer
+ * (`will-change: transform, opacity` on `.split-word`), which lifts it out of
+ * the ancestor's paint. That creates two failure modes, and it is easy to fix
+ * one into the other:
+ *
+ *   Gradient on the ancestor only  -> the promoted word has no gradient behind
+ *                                     it and inherits `color: transparent`.
+ *                                     Result: invisible text.
+ *   Gradient on BOTH               -> the ancestor paints the glyphs once, the
+ *                                     promoted layer paints them again with a
+ *                                     ramp sized to its own narrower box.
+ *                                     Result: visibly doubled, offset text.
+ *
+ * So exactly one element must paint. Which one depends on whether the text is
+ * animated, hence two classes:
+ *
+ *   .ink-gradient        static text (nav wordmark, footer, 404) — parent paints
+ *   .ink-gradient-split  wraps <SplitWords> — only the word paints
+ */
+:root {
+  --ink-ramp: linear-gradient(120deg, #171717 0%, #404040 45%, #737373 100%);
+}
+
+.ink-gradient {
+  background-image: var(--ink-ramp);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* The wrapper itself paints nothing; it only hides any stray direct text. */
+.ink-gradient-split {
+  color: transparent;
+}
+
+.ink-gradient-split .split-word {
+  background-image: var(--ink-ramp);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hairline {
+  border-color: color-mix(in srgb, var(--color-hairline) 70%, transparent);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   Keyframes
+   ═══════════════════════════════════════════════════════════════════ */
+@keyframes marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+.animate-marquee {
+  animation: marquee var(--marquee-duration, 38s) linear infinite;
+}
+.marquee-host:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(0, -18px, 0) rotate(2.5deg);
+  }
+}
+.animate-float {
+  animation: float-slow 7s ease-in-out infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.7;
+  }
+  70% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.animate-pulse-ring {
+  animation: pulse-ring 2.6s var(--ease-out-expo) infinite;
+}
+
+@keyframes shimmer {
+  from {
+    background-position: -220% 0;
+  }
+  to {
+    background-position: 220% 0;
+  }
+}
+.animate-shimmer {
+  background-image: linear-gradient(
+    100deg,
+    transparent 25%,
+    rgba(255, 255, 255, 0.85) 50%,
+    transparent 75%
+  );
+  background-size: 220% 100%;
+  animation: shimmer 2.4s linear infinite;
+}
+
+@keyframes hex-breathe {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Scroll-driven underline for nav links */
+.link-underline {
+  position: relative;
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 6px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-ink) 50%,
+    transparent
+  );
+  transform: scaleX(0);
+  transform-origin: 50% 50%;
+  transition: transform 0.5s var(--ease-out-expo);
+}
+.link-underline:hover::after,
+.link-underline[data-active="true"]::after {
+  transform: scaleX(1);
+}
+
+/*
+ * Horizontal rails hide their scrollbar but stay real scroll containers —
+ * wheel, trackpad, touch-drag and keyboard all keep working. The visible
+ * affordance is the edge fade plus the prev/next buttons instead.
+ */
+.scrollbar-none {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   Polish
+   ═══════════════════════════════════════════════════════════════════ */
+
+/*
+ * Optical alignment for large display type.
+ *
+ * At 8rem+, the left sidebearing of round and diagonal glyphs (O, C, A, V)
+ * reads as an indent against a flush column of body text below. Nudging the
+ * whole line left by a fraction of an em lines the *ink* up rather than the
+ * bounding box — which is what the eye actually measures.
+ */
+.optical-left {
+  margin-left: -0.055em;
+}
+
+/* Headings shouldn't break mid-phrase on a narrow column. */
+.balance {
+  text-wrap: balance;
+}
+.pretty {
+  text-wrap: pretty;
+}
+
+/*
+ * Anything that animates in gets promoted while it moves and released after.
+ * A permanent `will-change` keeps a compositor layer alive for the life of the
+ * page, which on a long page is dozens of idle layers eating memory.
+ */
+.lift {
+  transition:
+    transform 0.5s var(--ease-out-expo),
+    box-shadow 0.5s var(--ease-out-expo);
+}
+.lift:hover {
+  transform: translateY(-3px);
+}
+
+/* Hairline that reads at any zoom, unlike a 1px border on a hi-dpi screen. */
+.rule {
+  background-image: linear-gradient(
+    to right,
+    transparent,
+    color-mix(in srgb, var(--color-hairline) 90%, transparent) 12%,
+    color-mix(in srgb, var(--color-hairline) 90%, transparent) 88%,
+    transparent
+  );
+  height: 1px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   Text effects
+   ═══════════════════════════════════════════════════════════════════ */
+/*
+ * One mask per word, sitting inline so words flow as a sentence.
+ *
+ * This MUST be inline-block. It was `block`, which stacked every word of a
+ * heading onto its own line — "Who / We / Are" down the page instead of across
+ * it. The bug hid in single-word headings and only showed up on multi-word ones.
+ *
+ * Note it beats Tailwind's `inline-block` utility regardless: this file is
+ * unlayered, and unlayered CSS outranks everything in `@layer utilities`. So
+ * the display value has to be correct here — adding the utility class in JSX
+ * cannot override it.
+ *
+ * `vertical-align: bottom` because `overflow: hidden` moves an inline-block's
+ * baseline to its bottom margin edge, which otherwise drops each word by the
+ * font's descender depth.
+ */
+.split-line {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+.split-word {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+.stroke-text {
+  color: transparent;
+  -webkit-text-stroke: 1.25px var(--color-ink);
+  paint-order: stroke fill;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   Reduced motion — a hard stop, not a suggestion.
+   Everything decorative is neutralised; content stays fully readable.
+   ═══════════════════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .cursor-layer {
+    display: none;
+  }
+  html.has-custom-cursor,
+  html.has-custom-cursor * {
+    cursor: auto !important;
+  }
+  .animate-float,
+  .animate-marquee,
+  .animate-pulse-ring,
+  .animate-shimmer {
+    animation: none !important;
+  }
+}

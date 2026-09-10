@@ -1,0 +1,190 @@
+========================================================================
+ ISTE KJSSE — website
+ Requirements & setup
+========================================================================
+
+READ THIS FIRST
+---------------
+This is a Next.js / TypeScript project, not a Python one. There is no
+`pip install -r requirements.txt` here — this file is the human-readable
+setup guide. The dependency list lives in `package.json` and installs
+with npm (step 2).
+
+This is a STATIC PUBLIC SITE. There is no database, no login, and no
+admin dashboard. Every page is prerendered at build time. Content is
+edited by hand in one file — see section 3.
+
+
+------------------------------------------------------------------------
+1. PREREQUISITES
+------------------------------------------------------------------------
+
+Node.js   >= 20.9.0        (enforced by package.json "engines")
+npm       >= 10            (ships with Node 20)
+Git
+
+Check:
+
+    node -v
+    npm -v
+
+If Node is older than 20.9, install the current LTS from nodejs.org or
+use a version manager (nvm / fnm / volta).
+
+ONE NATIVE MODULE: `sharp`, which Next.js uses to optimise images. npm
+ships prebuilt binaries for macOS, Windows and Linux on x64/arm64, so a
+normal install needs no compiler. If you switch Node versions:
+
+    npm rebuild sharp
+
+
+------------------------------------------------------------------------
+2. GET IT RUNNING
+------------------------------------------------------------------------
+
+    git clone https://github.com/rishrek/ISTE-WEBS.git
+    cd ISTE-WEBS
+    npm install
+    npm run dev
+
+Open http://localhost:3000
+
+No environment file is needed. Nothing to configure.
+
+
+------------------------------------------------------------------------
+3. EDITING THE CONTENT
+------------------------------------------------------------------------
+
+All of it lives in ONE file:
+
+    src/lib/data/site-content.ts
+
+It holds four arrays and a settings object:
+
+    TEAM_ROWS              140 council members across 7 terms
+    EVENT_ROWS             11 events
+    GALLERY_ROWS           30 gallery images
+    DEPARTMENT_ORDER_ROWS  the order departments appear in, per term
+    SETTINGS               current_term, chapter_email
+
+Edit it like any TypeScript file, save, and the dev server reloads.
+TypeScript will tell you if a field is missing or the wrong type.
+
+ADDING A COUNCIL MEMBER — copy an existing entry and change it:
+
+    {
+      "id": "tm_something_unique",
+      "name": "Full Name",
+      "position": "Head",              // Chairperson, Head, Member, ...
+      "department": "Operations",
+      "term": "2026-2027",
+      "image_url": "/archive/their-photo.webp",   // or null for initials
+      "socials": null,                 // or "instagram.com/handle"
+      "phone": null,                   // shown only for core officers
+      "published": 1,
+      "sort_order": 0,                 // lower appears first
+      "created_at": 0, "updated_at": 0, "updated_by": null
+    }
+
+`sort_order` controls position within a department. Put the head at 0.
+
+STARTING A NEW COUNCIL YEAR:
+  1. Add the new members with the new `term` (e.g. "2027-2028")
+  2. Change SETTINGS.current_term to that term
+The old years stay and remain browsable on /teams.
+
+ADDING IMAGES: drop the file in `public/archive/` and point `image_url`
+at `/archive/your-file.webp`. Keep photos small — roughly 900px wide for
+portraits, 1600px for event posters. WebP is preferred.
+
+
+------------------------------------------------------------------------
+4. THE CONTACT FORM
+------------------------------------------------------------------------
+
+The form posts to a hosted form service. Until you set an endpoint it
+stays visible but tells visitors to email instead — it does not silently
+swallow messages.
+
+To connect it, create `.env.local`:
+
+    NEXT_PUBLIC_CONTACT_ENDPOINT="https://formspree.io/f/xxxxxxxx"
+
+Any service that accepts a JSON POST works — Formspree, Getform, Basin.
+Sign up, create a form, paste the endpoint URL. It is NEXT_PUBLIC_
+because the browser posts to it directly; it is a public endpoint, not
+a secret.
+
+Logic lives in `src/lib/contact.ts`.
+
+
+------------------------------------------------------------------------
+5. COMMANDS
+------------------------------------------------------------------------
+
+    npm run dev            dev server on port 3000
+    npm run build          production build (all pages prerendered)
+    npm run start          serve a production build
+    npm run verify         typecheck + lint
+    npm run typecheck      tsc --noEmit
+    npm run lint           eslint
+    npm run assets         re-download + re-encode images from the old site
+
+Run `npm run verify` before you push. It must pass with zero warnings.
+
+
+------------------------------------------------------------------------
+6. DEPLOYING
+------------------------------------------------------------------------
+
+Every route is statically prerendered, so this deploys anywhere that
+runs a Node build — Vercel, Netlify, Cloudflare Pages, GitHub Pages via
+a static export, or any VPS.
+
+    npm run build
+    npm run start          # or serve .next via your host's adapter
+
+No database, no persistent disk, no secrets, no environment variables
+required. The only optional one is the contact endpoint in section 4.
+
+
+------------------------------------------------------------------------
+7. THINGS THAT WILL BITE YOU
+------------------------------------------------------------------------
+
+DO NOT run `npm run build` while `npm run dev` is running.
+    They share the `.next` directory but write incompatible output —
+    dev uses Turbopack, build uses webpack. Running both corrupts it and
+    every route returns 500 with MODULE_NOT_FOUND. Recovery:
+
+        pkill -f "next dev"; rm -rf .next && npm run dev
+
+KNOWN ADVISORY: `npm audit` reports a high-severity libvips issue via
+    the copy of `sharp` bundled inside Next 15, and a postcss issue also
+    via Next. Both are only fixable by upgrading to Next 16, which is a
+    major version bump and has not been done. The site processes only
+    the images committed in `public/`, never visitor uploads, so there
+    is no untrusted input reaching that code path.
+
+NEVER commit `.env.local` — it is gitignored, keep it that way.
+
+
+------------------------------------------------------------------------
+8. LAYOUT
+------------------------------------------------------------------------
+
+    src/app/(site)/            the four pages: /, /events, /teams, /gallery
+    src/app/(site)/layout.tsx  site chrome: smooth scroll, custom cursor,
+                               preloader, scroll progress, back-to-top
+    src/app/layout.tsx         document shell only
+    src/components/site/       page sections
+    src/components/fx/         animation + WebGL (three.js, Framer Motion)
+    src/lib/data/
+        site-content.ts        ALL CONTENT — edit this
+        content.ts             read layer the components use
+        rows.ts                type definitions
+    src/lib/site.ts            static chapter details, nav, socials
+    src/lib/contact.ts         contact form delivery
+    public/archive/            every photo and poster
+    scripts/localise-assets.mjs  image downloader/optimiser

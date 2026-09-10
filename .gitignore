@@ -1,41 +1,36 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
 # dependencies
 /node_modules
 /.pnp
 .pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/versions
-
-# testing
-/coverage
 
 # next.js
 /.next/
 /out/
+next-env.d.ts
+*.tsbuildinfo
 
 # production
 /build
 
+# runtime data — left over from the council dashboard, which was removed.
+# Nothing in the site reads this any more, but never commit it: the old
+# database holds password/PIN/TOTP verifiers for former council accounts.
+/data/
+
+# env
+.env
+.env.local
+.env*.local
+.env.production
+
+# Claude Code local settings — per-machine, and it recorded the portal path
+# inside remembered Bash permission entries. Never commit it.
+.claude/settings.local.json
+
 # misc
 .DS_Store
 *.pem
-
-# debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-.pnpm-debug.log*
-
-# env files (can opt-in for committing if needed)
-.env*
-
-# vercel
 .vercel
-
-# typescript
-*.tsbuildinfo
-next-env.d.ts
