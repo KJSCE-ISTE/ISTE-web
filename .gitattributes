@@ -1,0 +1,18 @@
+# Normalise line endings on commit.
+#
+# Without this a collaborator on Windows commits CRLF and every file they touch
+# shows as fully rewritten. It happened: a folder copy came back with CRLF
+# throughout and 81 of 82 source files reported as changed, when only two had
+# actually been edited. `text=auto eol=lf` stores LF in the repo regardless of
+# the checkout platform, so diffs stay honest.
+* text=auto eol=lf
+
+# Binaries must never be line-ending converted — that corrupts them.
+*.webp binary
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.ico  binary
+*.woff  binary
+*.woff2 binary
