@@ -113,9 +113,6 @@ export default function TeamRoster({
                   />
                 )}
                 <span className="relative z-10">{entry.term}</span>
-                <span className="relative z-10 ml-2 text-[10px] text-neutral-400">
-                  {entry.members.length}
-                </span>
                 {entry.term === currentTerm && (
                   <span
                     className="relative z-10 ml-2 inline-block h-1.5 w-1.5 rounded-full bg-emerald-400 align-middle"

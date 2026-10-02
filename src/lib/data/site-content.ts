@@ -2120,6 +2120,51 @@ export const TEAM_ROWS: TeamRow[] = [
 
 export const EVENT_ROWS: EventRow[] = [
   {
+    "id": "evt_prakalpa26_tv",
+    "slug": "prakalpa-26",
+    "title": "Prakalpa’26 – Technoverse  ",
+    "term": "2025-2026",
+    "event_date": "2026-04-09",
+    "summary": "The Prakalpa’26 – Technoverse national-level project and paper presentation competition, organized by ISTE KJSSE at K J Somaiya School of Engineering, was held on April 9th, 2026. Featuring themes such as AI/ML, Blockchain, Cybersecurity, Robotics, IoT, and more, the event offered three categories: Hardware Projects, Software Projects, and Paper Presentations. Participants showcased working prototypes and research before expert judges, gaining valuable feedback and exposure to industry standards. With a prize pool of ₹50,000+ and funding opportunities up to ₹2 lakhs, Prakalpa’26 provided a prestigious platform for innovation, technical excellence, and collaborative learning, strengthening the institution’s culture of hands-on exploration and research.",
+    "details": null,
+    "image_url": "/archive/events_25_26_Prakalpa.webp",
+    "published": 1,
+    "sort_order": 0,
+    "created_at": 1787408082664,
+    "updated_at": 1788702375419,
+    "updated_by": "mem_e7XOfVUl9Z8Q"
+  },
+  {
+    "id": "evt_thinksprint2_0",
+    "slug": "thinksprint-2.0",
+    "title": "ThinkSprint 2.0",
+    "term": "2025-2026",
+    "event_date": "2026-03-30",
+    "summary": "The ThinkSprint 2.0 ideathon, organized by ISTE KJSSE as a pre-event to Prakalpa’26 at K J Somaiya School of Engineering, was a dynamic platform that encouraged innovative thinking and collaborative problem-solving among students. Conducted on March 30th, 2026, the event challenged participants to propose solutions to real-world problems, adapt ideas to constraints, and defend their approaches before peers. With engaging discussions and evaluations, ThinkSprint 2.0 sharpened ideation, critical thinking, and presentation skills, reflecting ISTE KJSSE’s commitment to fostering innovation and collaborative learning.",
+    "details": null,
+    "image_url": "/archive/events_25_26_Thinksprint_2_square.webp",
+    "published": 1,
+    "sort_order": 1,
+    "created_at": 1787408082664,
+    "updated_at": 1788702375419,
+    "updated_by": "mem_e7XOfVUl9Z8Q"
+  },
+  {
+    "id": "evt_scaleup_sw_ai",
+    "slug": "scaleup-webinar",
+    "title": "ScaleUp: Software Meets AI",
+    "term": "2025-2026",
+    "event_date": "2026-02-21",
+    "summary": "The ScaleUp: Software Meets AI – Designing Software that Works at Scale webinar, organized by ISTE KJSSE at K J Somaiya School of Engineering, Somaiya Vidyavihar University, was an insightful and industry-focused session conducted on February 21st, 2026. Featuring Mr. Ankur Kesharwani, SDE-3 at Oracle, the event explored the real software development lifecycle, the integration of AI in scalable systems, and the essential skills required for modern software engineering. The webinar provided practical perspectives on designing and scaling software in professional environments, debunked common AI myths, and offered students valuable exposure to industry standards. Well-received by participants, the session reinforced ISTE KJSSE's mission of fostering technical culture through expert-led learning opportunities.",
+    "details": null,
+    "image_url": "/archive/events_25_26_Scaleup_Software_Meets_AI.webp",
+    "published": 1,
+    "sort_order": 2,
+    "created_at": 1787408082664,
+    "updated_at": 1788702375419,
+    "updated_by": "mem_e7XOfVUl9Z8Q"
+  },
+  {
     "id": "evt_sHM63XZNXzvQ",
     "slug": "pixel-wars",
     "title": "Pixel Wars",
@@ -2129,7 +2174,7 @@ export const EVENT_ROWS: EventRow[] = [
     "details": null,
     "image_url": "/archive/events-2025-2026-abhiyantriki-pixel-wars-2025-2026-2fd712.webp",
     "published": 1,
-    "sort_order": 0,
+    "sort_order": 3,
     "created_at": 1787408082664,
     "updated_at": 1788702375419,
     "updated_by": "mem_e7XOfVUl9Z8Q"
@@ -2144,7 +2189,7 @@ export const EVENT_ROWS: EventRow[] = [
     "details": null,
     "image_url": "/archive/events-2024-2025-prakalpa-technovate-2024-2025-bc5f1b.webp",
     "published": 1,
-    "sort_order": 1,
+    "sort_order": 4,
     "created_at": 1787408082664,
     "updated_at": 1787408082664,
     "updated_by": null
@@ -2159,7 +2204,7 @@ export const EVENT_ROWS: EventRow[] = [
     "details": null,
     "image_url": "/archive/events-2024-2025-case-study-competition-thinksprint-2024-2025-bcc44e.webp",
     "published": 1,
-    "sort_order": 2,
+    "sort_order": 5,
     "created_at": 1787408082664,
     "updated_at": 1787408082664,
     "updated_by": null
@@ -2174,7 +2219,7 @@ export const EVENT_ROWS: EventRow[] = [
     "details": null,
     "image_url": "/archive/events-2024-2025-abhiyantriki-techtangle-2024-2025-2ca585.webp",
     "published": 1,
-    "sort_order": 3,
+    "sort_order": 6,
     "created_at": 1787408082664,
     "updated_at": 1787408082664,
     "updated_by": null
@@ -2189,7 +2234,7 @@ export const EVENT_ROWS: EventRow[] = [
     "details": null,
     "image_url": "/archive/events-2024-2025-workshop-click-drag-create-2024-2025-f9ac3e.webp",
     "published": 1,
-    "sort_order": 4,
+    "sort_order": 7,
     "created_at": 1787408082664,
     "updated_at": 1787408082664,
     "updated_by": null
@@ -2204,7 +2249,7 @@ export const EVENT_ROWS: EventRow[] = [
     "details": null,
     "image_url": "/archive/events-2023-2024-prakalpa-techxpo-2023-2024-e83f9c.webp",
     "published": 1,
-    "sort_order": 5,
+    "sort_order": 8,
     "created_at": 1787408082664,
     "updated_at": 1787408082664,
     "updated_by": null
@@ -2219,7 +2264,7 @@ export const EVENT_ROWS: EventRow[] = [
     "details": null,
     "image_url": "/archive/events-2022-2023-prakalpa-2022-2023-54e97a.webp",
     "published": 1,
-    "sort_order": 6,
+    "sort_order": 9,
     "created_at": 1787408082664,
     "updated_at": 1787408082664,
     "updated_by": null
@@ -2234,7 +2279,7 @@ export const EVENT_ROWS: EventRow[] = [
     "details": null,
     "image_url": "/archive/events-2023-2024-seminar-geekspeak-2023-2024-db4792.webp",
     "published": 1,
-    "sort_order": 7,
+    "sort_order": 10,
     "created_at": 1787408082664,
     "updated_at": 1787408082664,
     "updated_by": null
@@ -2249,7 +2294,7 @@ export const EVENT_ROWS: EventRow[] = [
     "details": null,
     "image_url": "/archive/events-2023-2024-workshop-creaite-2023-2024-3f92c6.webp",
     "published": 1,
-    "sort_order": 8,
+    "sort_order": 11,
     "created_at": 1787408082664,
     "updated_at": 1787408082664,
     "updated_by": null
@@ -2264,7 +2309,7 @@ export const EVENT_ROWS: EventRow[] = [
     "details": null,
     "image_url": "/archive/events-2022-2023-abhiyantriki-2022-2023-34e9b7.webp",
     "published": 1,
-    "sort_order": 9,
+    "sort_order": 12,
     "created_at": 1787408082664,
     "updated_at": 1787408082664,
     "updated_by": null
@@ -2279,7 +2324,7 @@ export const EVENT_ROWS: EventRow[] = [
     "details": null,
     "image_url": "/archive/events-2022-2023-seminar-2022-2023-e44530.webp",
     "published": 1,
-    "sort_order": 10,
+    "sort_order": 13,
     "created_at": 1787408082664,
     "updated_at": 1787408082664,
     "updated_by": null
@@ -2379,6 +2424,45 @@ export const GALLERY_ROWS: GalleryRow[] = [
     "updated_by": null
   },
   {
+    "id": "gal_prakalpa26_tv",
+    "caption": "Prakalpa'26 – Technoverse",
+    "image_url": "/archive/events_25_26_Prakalpa.webp",
+    "term": "2025-2026",
+    "width": 1080,
+    "height": 1080,
+    "published": 1,
+    "sort_order": 7,
+    "created_at": 1787408082664,
+    "updated_at": 1787408082664,
+    "updated_by": null
+  },
+  {
+    "id": "gal_thinksprint2_0",
+    "caption": "ThinkSprint 2.0",
+    "image_url": "/archive/events_25_26_Thinksprint_2.webp",
+    "term": "2025-2026",
+    "width": 608,
+    "height": 864,
+    "published": 1,
+    "sort_order": 8,
+    "created_at": 1787408082664,
+    "updated_at": 1787408082664,
+    "updated_by": null
+  },
+  {
+    "id": "gal_scaleup_sw_ai",
+    "caption": "ScaleUp: Software Meets AI",
+    "image_url": "/archive/events_25_26_Scaleup_Software_Meets_AI.webp",
+    "term": "2025-2026",
+    "width": 1080,
+    "height": 1080,
+    "published": 1,
+    "sort_order": 9,
+    "created_at": 1787408082664,
+    "updated_at": 1787408082664,
+    "updated_by": null
+  },
+  {
     "id": "gal_Km10xxuMCMsK",
     "caption": "Prakalpa '25-26",
     "image_url": "/GalleryComponentImages/img8.webp",
@@ -2386,7 +2470,7 @@ export const GALLERY_ROWS: GalleryRow[] = [
     "width": 1131,
     "height": 1600,
     "published": 1,
-    "sort_order": 7,
+    "sort_order": 10,
     "created_at": 1787408082664,
     "updated_at": 1787408082664,
     "updated_by": null
@@ -2399,7 +2483,7 @@ export const GALLERY_ROWS: GalleryRow[] = [
     "width": 1131,
     "height": 1600,
     "published": 1,
-    "sort_order": 8,
+    "sort_order": 11,
     "created_at": 1787408082664,
     "updated_at": 1787408082664,
     "updated_by": null
@@ -2412,7 +2496,7 @@ export const GALLERY_ROWS: GalleryRow[] = [
     "width": 1600,
     "height": 1131,
     "published": 1,
-    "sort_order": 9,
+    "sort_order": 12,
     "created_at": 1787408082664,
     "updated_at": 1787408082664,
     "updated_by": null
@@ -2425,7 +2509,7 @@ export const GALLERY_ROWS: GalleryRow[] = [
     "width": 1080,
     "height": 1080,
     "published": 1,
-    "sort_order": 10,
+    "sort_order": 13,
     "created_at": 1787408082664,
     "updated_at": 1787408082664,
     "updated_by": null
@@ -2438,7 +2522,7 @@ export const GALLERY_ROWS: GalleryRow[] = [
     "width": 1131,
     "height": 1600,
     "published": 1,
-    "sort_order": 11,
+    "sort_order": 14,
     "created_at": 1787408082664,
     "updated_at": 1787408082664,
     "updated_by": null
@@ -2451,7 +2535,7 @@ export const GALLERY_ROWS: GalleryRow[] = [
     "width": 904,
     "height": 1280,
     "published": 1,
-    "sort_order": 12,
+    "sort_order": 15,
     "created_at": 1787408082664,
     "updated_at": 1787408082664,
     "updated_by": null
@@ -2464,7 +2548,7 @@ export const GALLERY_ROWS: GalleryRow[] = [
     "width": 771,
     "height": 1079,
     "published": 1,
-    "sort_order": 13,
+    "sort_order": 16,
     "created_at": 1787408082664,
     "updated_at": 1787408082664,
     "updated_by": null
@@ -2477,7 +2561,7 @@ export const GALLERY_ROWS: GalleryRow[] = [
     "width": 1280,
     "height": 904,
     "published": 1,
-    "sort_order": 14,
+    "sort_order": 17,
     "created_at": 1787408082664,
     "updated_at": 1787408082664,
     "updated_by": null
@@ -2490,7 +2574,7 @@ export const GALLERY_ROWS: GalleryRow[] = [
     "width": 1080,
     "height": 1078,
     "published": 1,
-    "sort_order": 15,
+    "sort_order": 18,
     "created_at": 1787408082664,
     "updated_at": 1787408082664,
     "updated_by": null
@@ -2503,7 +2587,7 @@ export const GALLERY_ROWS: GalleryRow[] = [
     "width": 1414,
     "height": 2000,
     "published": 1,
-    "sort_order": 16,
+    "sort_order": 19,
     "created_at": 1787408082664,
     "updated_at": 1787408082664,
     "updated_by": null
@@ -2516,7 +2600,7 @@ export const GALLERY_ROWS: GalleryRow[] = [
     "width": 1080,
     "height": 1080,
     "published": 1,
-    "sort_order": 17,
+    "sort_order": 20,
     "created_at": 1787408082664,
     "updated_at": 1787408082664,
     "updated_by": null
@@ -2529,7 +2613,7 @@ export const GALLERY_ROWS: GalleryRow[] = [
     "width": 1080,
     "height": 1080,
     "published": 1,
-    "sort_order": 18,
+    "sort_order": 21,
     "created_at": 1787408082664,
     "updated_at": 1787408082664,
     "updated_by": null
@@ -2542,7 +2626,7 @@ export const GALLERY_ROWS: GalleryRow[] = [
     "width": 1080,
     "height": 1080,
     "published": 1,
-    "sort_order": 19,
+    "sort_order": 22,
     "created_at": 1787408082664,
     "updated_at": 1787408082664,
     "updated_by": null
@@ -2555,7 +2639,7 @@ export const GALLERY_ROWS: GalleryRow[] = [
     "width": 1310,
     "height": 754,
     "published": 1,
-    "sort_order": 20,
+    "sort_order": 23,
     "created_at": 1787408082664,
     "updated_at": 1787408082664,
     "updated_by": null
@@ -2568,7 +2652,7 @@ export const GALLERY_ROWS: GalleryRow[] = [
     "width": 500,
     "height": 500,
     "published": 1,
-    "sort_order": 21,
+    "sort_order": 24,
     "created_at": 1787408082664,
     "updated_at": 1787408082664,
     "updated_by": null
@@ -2581,7 +2665,7 @@ export const GALLERY_ROWS: GalleryRow[] = [
     "width": 1080,
     "height": 1080,
     "published": 1,
-    "sort_order": 22,
+    "sort_order": 25,
     "created_at": 1787408082664,
     "updated_at": 1787408082664,
     "updated_by": null
@@ -2594,7 +2678,7 @@ export const GALLERY_ROWS: GalleryRow[] = [
     "width": 1080,
     "height": 1081,
     "published": 1,
-    "sort_order": 23,
+    "sort_order": 26,
     "created_at": 1787408082664,
     "updated_at": 1787408082664,
     "updated_by": null
@@ -2607,7 +2691,7 @@ export const GALLERY_ROWS: GalleryRow[] = [
     "width": 1280,
     "height": 1280,
     "published": 1,
-    "sort_order": 24,
+    "sort_order": 27,
     "created_at": 1787408082664,
     "updated_at": 1787408082664,
     "updated_by": null
@@ -2620,7 +2704,7 @@ export const GALLERY_ROWS: GalleryRow[] = [
     "width": 1080,
     "height": 1080,
     "published": 1,
-    "sort_order": 25,
+    "sort_order": 28,
     "created_at": 1787408082664,
     "updated_at": 1787408082664,
     "updated_by": null
@@ -2633,7 +2717,7 @@ export const GALLERY_ROWS: GalleryRow[] = [
     "width": 1080,
     "height": 1080,
     "published": 1,
-    "sort_order": 26,
+    "sort_order": 29,
     "created_at": 1787408082664,
     "updated_at": 1787408082664,
     "updated_by": null
@@ -2646,7 +2730,7 @@ export const GALLERY_ROWS: GalleryRow[] = [
     "width": 1050,
     "height": 1490,
     "published": 1,
-    "sort_order": 27,
+    "sort_order": 30,
     "created_at": 1787408082664,
     "updated_at": 1787408082664,
     "updated_by": null
@@ -2659,7 +2743,7 @@ export const GALLERY_ROWS: GalleryRow[] = [
     "width": 1080,
     "height": 1080,
     "published": 1,
-    "sort_order": 28,
+    "sort_order": 31,
     "created_at": 1787408082664,
     "updated_at": 1787408082664,
     "updated_by": null
@@ -2672,7 +2756,7 @@ export const GALLERY_ROWS: GalleryRow[] = [
     "width": 1080,
     "height": 1080,
     "published": 1,
-    "sort_order": 29,
+    "sort_order": 32,
     "created_at": 1787408082664,
     "updated_at": 1787408082664,
     "updated_by": null
