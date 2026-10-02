@@ -110,7 +110,7 @@ export default function Gallery({
                           alt={item.caption ?? ""}
                           fill
                           sizes="(max-width: 768px) 50vw, 33vw"
-                          className="object-cover transition-transform duration-[1100ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.07]"
+                          className="object-cover object-top transition-transform duration-[1100ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.07]"
                           /* Only ever true for a URL the council pastes by hand into the
                              dashboard. Archive images are local now, so they go through
                              Next's optimizer; an arbitrary external host would 400 there

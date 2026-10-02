@@ -200,7 +200,7 @@ function GalleryTile({
           alt={item.caption ?? ""}
           fill
           sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-          className="object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]"
+          className="object-cover object-top transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]"
           /* Only ever true for a URL the council pastes by hand into the
              dashboard. Archive images are local now, so they go through
              Next's optimizer; an arbitrary external host would 400 there

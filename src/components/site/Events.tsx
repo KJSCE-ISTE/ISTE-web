@@ -78,7 +78,7 @@ export default function Events({
                   href={`/events#${event.slug}`}
                   data-cursor="view"
                   data-cursor-text="Read"
-                  className="block h-full"
+                  className="block h-auto"
                 >
                   <motion.div
                     animate={{
@@ -94,7 +94,7 @@ export default function Events({
                           : "0 8px 18px rgba(9, 1, 77, 0.08)",
                     }}
                     transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-                    className="flex h-full flex-col overflow-hidden rounded-2xl border border-panel-edge bg-panel"
+                    className="flex flex-col overflow-hidden rounded-2xl border border-panel-edge bg-panel"
                   >
                     {/* Poster rolls open above the heading on hover. Collapsed to
                         zero height at rest, so a resting card is heading only.
@@ -112,7 +112,7 @@ export default function Events({
                           alt=""
                           fill
                           sizes="(max-width: 768px) 100vw, 33vw"
-                          className="object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
+                          className="object-cover object-top transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
                           /* Only ever true for a URL the council pastes by hand into the
                              dashboard. Archive images are local now, so they go through
                              Next's optimizer; an arbitrary external host would 400 there
@@ -152,18 +152,21 @@ export default function Events({
                         </motion.span>
                       </div>
 
-                      <div className="mt-4 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                        <h3 className="text-[clamp(1.3rem,2vw,1.7rem)] leading-tight font-semibold tracking-tight text-white">
+                      <div className="mt-4 flex flex-1 flex-col justify-start">
+                        <h3 className="text-[clamp(1.3rem,2vw,1.7rem)] leading-tight font-semibold tracking-tight text-white min-h-[3.25rem]">
                           {event.title}
                         </h3>
-                        <span className="rounded-full border border-field-edge px-2.5 py-0.5 font-mono text-[10px] tracking-wider text-neutral-300">
-                          {event.term}
-                        </span>
-                      </div>
 
-                      <p className="mt-1.5 font-mono text-[11px] tracking-[0.14em] text-neutral-500 uppercase">
-                        {event.dateLabel}
-                      </p>
+                        <div className="mt-2">
+                          <span className="inline-block rounded-full border border-field-edge px-2.5 py-0.5 font-mono text-[10px] tracking-wider text-neutral-300">
+                            {event.term}
+                          </span>
+                        </div>
+
+                        <p className="mt-2 font-mono text-[11px] tracking-[0.14em] text-neutral-500 uppercase">
+                          {event.dateLabel}
+                        </p>
+                      </div>
 
                       {/* Summary rolls down on hover, from nothing. marginTop is
                           animated too, or the collapsed paragraph would still hold a
